@@ -154,7 +154,6 @@ namespace VirtoCommerce.Platform.Web.Modularity
             }
         }
 
-
         private IDictionary<string, ModuleManifest> GetModuleManifests()
         {
             var result = new Dictionary<string, ModuleManifest>();

@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace VirtoCommerce.Platform.Core.Common
 {
@@ -15,7 +12,7 @@ namespace VirtoCommerce.Platform.Core.Common
         private static Dictionary<string, string> _mapping = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase) {
 
                 #region Big freaking list of mime types
-            
+
                 // maps both ways,
                 // extension -> mime type
                 //   and
@@ -25,7 +22,7 @@ namespace VirtoCommerce.Platform.Core.Common
                 // some mime types can map to multiple extensions, so to get a deterministic mapping,
                 // add those to the dictionary specifcially
                 //
-                // combination of values from Windows 7 Registry and 
+                // combination of values from Windows 7 Registry and
                 // from C:\Windows\System32\inetsrv\config\applicationHost.config
                 // some added, including .7z and .dat
                 //
@@ -617,9 +614,8 @@ namespace VirtoCommerce.Platform.Core.Common
                 {".zip", "application/zip"},
                 { ".liquid", "text/html" },
                 { ".md", "text/html" },
-            
-                #endregion
 
+                #endregion Big freaking list of mime types
                 };
 
         public static string ResolveContentType(string fileName)

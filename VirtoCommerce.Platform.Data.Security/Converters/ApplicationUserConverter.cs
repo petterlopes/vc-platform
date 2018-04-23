@@ -4,7 +4,6 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Omu.ValueInjecter;
 using VirtoCommerce.Platform.Core.Common;
 using VirtoCommerce.Platform.Core.Security;
-using VirtoCommerce.Platform.Data.Common.ConventionInjections;
 using VirtoCommerce.Platform.Data.Model;
 using VirtoCommerce.Platform.Data.Security.Identity;
 
@@ -92,7 +91,7 @@ namespace VirtoCommerce.Platform.Data.Security.Converters
             dbUser.AccessFailedCount = user.AccessFailedCount;
             dbUser.EmailConfirmed = user.EmailConfirmed;
             dbUser.Email = user.Email ?? dbUser.Email;
-            
+
             // Copy logins
             if (user.Logins != null)
             {
@@ -106,7 +105,6 @@ namespace VirtoCommerce.Platform.Data.Security.Converters
                 var comparer = AnonymousComparer.Create((IdentityUserLogin x) => x.LoginProvider);
                 changedLogins.Patch(dbUser.Logins, comparer, (sourceItem, targetItem) => { sourceItem.ProviderKey = targetItem.ProviderKey; });
             }
-
         }
     }
 }

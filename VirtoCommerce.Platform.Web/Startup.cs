@@ -187,7 +187,7 @@ namespace VirtoCommerce.Platform.Web
 
             // Register MVC areas unless running in the Web Platform Installer mode
             if (IsApplication)
-            { 
+            {
                 AreaRegistration.RegisterAllAreas();
             }
 
@@ -196,7 +196,7 @@ namespace VirtoCommerce.Platform.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 
             if (IsApplication)
-            { 
+            {
                 RouteConfig.RegisterRoutes(RouteTable.Routes);
             }
 
@@ -295,7 +295,7 @@ namespace VirtoCommerce.Platform.Web
                 GlobalHost.DependencyResolver.UseRedis(new RedisScaleoutConfiguration(redisConnectionString.ConnectionString, "VirtoCommerce.Platform.SignalR"));
             }
 
-            // SignalR 
+            // SignalR
             var tempCounterManager = new TempPerformanceCounterManager();
             GlobalHost.DependencyResolver.Register(typeof(IPerformanceCounterManager), () => tempCounterManager);
             var hubConfiguration = new HubConfiguration { EnableJavaScriptProxies = false };
@@ -348,7 +348,7 @@ namespace VirtoCommerce.Platform.Web
 
             hangfireLauncher.ConfigureDatabase();
 
-            #endregion
+            #endregion Setup database
 
             Func<IPlatformRepository> platformRepositoryFactory = () => new PlatformRepository(connectionString, container.Resolve<AuditableInterceptor>(), new EntityPrimaryKeyGeneratorInterceptor());
             container.RegisterType<IPlatformRepository>(new InjectionFactory(c => platformRepositoryFactory()));
@@ -357,7 +357,7 @@ namespace VirtoCommerce.Platform.Web
 
             #region Caching
 
-            //Cure for System.Runtime.Caching.MemoryCache freezing 
+            //Cure for System.Runtime.Caching.MemoryCache freezing
             //https://www.zpqrtbnk.net/posts/appdomains-threads-cultureinfos-and-paracetamol
             app.SanitizeThreadCulture();
             ICacheManager<object> cacheManager = null;
@@ -388,7 +388,7 @@ namespace VirtoCommerce.Platform.Web
 
             container.RegisterInstance(cacheManager);
 
-            #endregion
+            #endregion Caching
 
             #region Settings
 
@@ -590,13 +590,13 @@ namespace VirtoCommerce.Platform.Web
             var settingsManager = new SettingsManager(moduleCatalog, platformRepositoryFactory, cacheManager, new[] { new ManifestModuleInfo(platformModuleManifest) });
             container.RegisterInstance<ISettingsManager>(settingsManager);
 
-            #endregion
+            #endregion Settings
 
             #region Dynamic Properties
 
             container.RegisterType<IDynamicPropertyService, DynamicPropertyService>(new ContainerControlledLifetimeManager());
 
-            #endregion
+            #endregion Dynamic Properties
 
             #region Notifications
 
@@ -634,7 +634,7 @@ namespace VirtoCommerce.Platform.Web
             var defaultSmsNotificationSendingGateway = new DefaultSmsNotificationSendingGateway();
             container.RegisterInstance<ISmsNotificationSendingGateway>(defaultSmsNotificationSendingGateway);
 
-            #endregion
+            #endregion Notifications
 
             #region Assets
 
@@ -653,11 +653,11 @@ namespace VirtoCommerce.Platform.Web
                 container.RegisterInstance<IBlobStorageProvider>(azureBlobProvider);
                 container.RegisterInstance<IBlobUrlResolver>(azureBlobProvider);
             }
-            
-            container.RegisterType <IAssetEntryService, AssetEntryService>(new ContainerControlledLifetimeManager());
-            container.RegisterType <IAssetEntrySearchService, AssetEntryService>(new ContainerControlledLifetimeManager());
 
-            #endregion
+            container.RegisterType<IAssetEntryService, AssetEntryService>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IAssetEntrySearchService, AssetEntryService>(new ContainerControlledLifetimeManager());
+
+            #endregion Assets
 
             #region Modularity
 
@@ -665,16 +665,17 @@ namespace VirtoCommerce.Platform.Web
             var externalModuleCatalog = new ExternalManifestModuleCatalog(moduleCatalog.Modules, modulesDataSources, container.Resolve<ILog>());
             container.RegisterType<ModulesController>(new InjectionConstructor(externalModuleCatalog, new ModuleInstaller(modulesPath, externalModuleCatalog), notifier, container.Resolve<IUserNameResolver>(), settingsManager));
 
-            #endregion
+            #endregion Modularity
 
             #region ChangeLogging
 
             var changeLogService = new ChangeLogService(platformRepositoryFactory);
             container.RegisterInstance<IChangeLogService>(changeLogService);
 
-            #endregion
+            #endregion ChangeLogging
 
             #region Security
+
             container.RegisterInstance<IPermissionScopeService>(new PermissionScopeService());
             container.RegisterType<IRoleManagementService, RoleManagementService>(new ContainerControlledLifetimeManager());
 
@@ -695,23 +696,27 @@ namespace VirtoCommerce.Platform.Web
 
             container.RegisterType<ISecurityService, SecurityService>();
 
-            #endregion
+            #endregion Security
 
             #region ExportImport
+
             container.RegisterType<IPlatformExportImportManager, PlatformExportImportManager>();
-            #endregion
+
+            #endregion ExportImport
 
             #region Serialization
 
             container.RegisterType<IExpressionSerializer, XmlExpressionSerializer>();
 
-            #endregion
+            #endregion Serialization
 
             #region Events
+
             var inProcessBus = new InProcessBus();
             container.RegisterInstance<IHandlerRegistrar>(inProcessBus);
             container.RegisterInstance<IEventPublisher>(inProcessBus);
-            #endregion
+
+            #endregion Events
         }
 
         private static string NormalizePath(IPathMapper pathMapper, string path)

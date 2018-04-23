@@ -17,6 +17,7 @@ namespace VirtoCommerce.Platform.Web.Controllers.Api
         private readonly INotificationTemplateService _notificationTemplateService;
         private readonly INotificationManager _notificationManager;
         private readonly INotificationTemplateResolver _eventTemplateResolver;
+
         public NotificationsController(
             INotificationTemplateService notificationTemplateService,
             INotificationManager notificationManager,
@@ -195,7 +196,7 @@ namespace VirtoCommerce.Platform.Web.Controllers.Api
             {
                 SetValue(notification, param);
             }
-            var result = _notificationManager.SendNotification(notification);          
+            var result = _notificationManager.SendNotification(notification);
             //save notification in feed
             _notificationManager.ScheduleSendNotification(notification);
 
@@ -229,7 +230,7 @@ namespace VirtoCommerce.Platform.Web.Controllers.Api
         }
 
         /// <summary>
-        /// Get all notification journal 
+        /// Get all notification journal
         /// </summary>
         /// <remarks>
         /// Method returns notification journal page with array of notification, that was send, sending or will be send in future. Result contains total count, that can be used

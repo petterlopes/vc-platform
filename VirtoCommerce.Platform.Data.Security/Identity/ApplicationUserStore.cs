@@ -7,7 +7,6 @@ namespace VirtoCommerce.Platform.Data.Security.Identity
         public ApplicationUserStore(SecurityDbContext context)
             : base(context)
         {
-
         }
     }
 }

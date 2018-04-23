@@ -1,4 +1,4 @@
-/* Everything Liquid */
+﻿/* Everything Liquid */
 .CodeMirror .cm-liquid {
   color: #000;
   background-color: #EEE;
@@ -10,7 +10,6 @@
 }
 /* Every whitespace inside Liquid markup (except inside string constants) */
 .CodeMirror .cm-liquid-whitespace {
-  
 }
 /* Number constants */
 .CodeMirror .cm-liquid-atom {
@@ -18,7 +17,6 @@
 }
 /* Variables, keywords and operators. Assigned by the Tokenizer which cannot differentiate between these */
 .CodeMirror .cm-liquid-word {
-  
 }
 /* String constants */
 .CodeMirror .cm-liquid-string {
@@ -42,7 +40,6 @@
 }
 /* Operators */
 .CodeMirror .cm-liquid-operator {
-  
 }
 /* The name of a Tag attribute (limit, offset) */
 .CodeMirror .cm-liquid-tag-attribute-name {
@@ -50,7 +47,6 @@
 }
 /* A Variable */
 .CodeMirror .cm-liquid-variable {
-
 }
 /* A method of a drop */
 .CodeMirror .cm-liquid-method {
@@ -66,9 +62,7 @@
 }
 /* Every output markup, including the {{ and }} */
 .CodeMirror .cm-liquid-output-markup {
-  
 }
 /* Every tag markup, including the {% and %} */
 .CodeMirror .cm-liquid-tag-markup {
-  
 }

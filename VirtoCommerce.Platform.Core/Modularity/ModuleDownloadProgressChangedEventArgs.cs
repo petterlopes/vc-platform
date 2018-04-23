@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.ComponentModel;
 
 namespace VirtoCommerce.Platform.Core.Modularity
@@ -13,7 +13,7 @@ namespace VirtoCommerce.Platform.Core.Modularity
         /// </summary>
         /// <param name="moduleInfo">The module info.</param>
         /// <param name="bytesReceived">The bytes received.</param>
-        /// <param name="totalBytesToReceive">The total bytes to receive.</param>        
+        /// <param name="totalBytesToReceive">The total bytes to receive.</param>
         public ModuleDownloadProgressChangedEventArgs(ModuleInfo moduleInfo, long bytesReceived, long totalBytesToReceive)
             : base(CalculateProgressPercentage(bytesReceived, totalBytesToReceive), null)
         {
@@ -44,7 +44,6 @@ namespace VirtoCommerce.Platform.Core.Modularity
         /// </summary>
         /// <value>The total bytes to receive.</value>
         public long TotalBytesToReceive { get; private set; }
-        
 
         private static int CalculateProgressPercentage(long bytesReceived, long totalBytesToReceive)
         {
@@ -54,7 +53,6 @@ namespace VirtoCommerce.Platform.Core.Modularity
             }
 
             return (int)((bytesReceived * 100L) / totalBytesToReceive);
-
         }
     }
 }

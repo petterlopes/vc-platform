@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace VirtoCommerce.Platform.Core.Common
@@ -10,7 +10,7 @@ namespace VirtoCommerce.Platform.Core.Common
     /// <typeparam name="TValue">The type of the value held by lists.</typeparam>
     public sealed class ListDictionary<TKey, TValue> : IDictionary<TKey, IList<TValue>>
     {
-        Dictionary<TKey, IList<TValue>> innerValues = new Dictionary<TKey, IList<TValue>>();
+        private Dictionary<TKey, IList<TValue>> innerValues = new Dictionary<TKey, IList<TValue>>();
 
         #region Public Methods
 
@@ -27,7 +27,7 @@ namespace VirtoCommerce.Platform.Core.Common
         }
 
         /// <summary>
-        /// Adds a value to a list with the given key. If a list does not already exist, 
+        /// Adds a value to a list with the given key. If a list does not already exist,
         /// it will be created automatically.
         /// </summary>
         /// <param name="key">The key of the list that will hold the value.</param>
@@ -100,7 +100,7 @@ namespace VirtoCommerce.Platform.Core.Common
         }
 
         /// <summary>
-        /// Retrieves the all the elements from the list which have a key that matches the condition 
+        /// Retrieves the all the elements from the list which have a key that matches the condition
         /// defined by the specified predicate.
         /// </summary>
         /// <param name="keyFilter">The filter with the condition to use to filter lists by their key.</param>
@@ -167,7 +167,7 @@ namespace VirtoCommerce.Platform.Core.Common
             if (innerValues.ContainsKey(key))
             {
                 List<TValue> innerList = (List<TValue>)innerValues[key];
-                innerList.RemoveAll(delegate(TValue item)
+                innerList.RemoveAll(delegate (TValue item)
                                                {
                                                    return value.Equals(item);
                                                });
@@ -186,7 +186,7 @@ namespace VirtoCommerce.Platform.Core.Common
             }
         }
 
-        #endregion
+        #endregion Public Methods
 
         #region Properties
 
@@ -218,7 +218,7 @@ namespace VirtoCommerce.Platform.Core.Common
         }
 
         /// <summary>
-        /// Gets or sets the list associated with the given key. The 
+        /// Gets or sets the list associated with the given key. The
         /// access always succeeds, eventually returning an empty list.
         /// </summary>
         /// <param name="key">The key of the list to access.</param>
@@ -245,7 +245,7 @@ namespace VirtoCommerce.Platform.Core.Common
             get { return innerValues.Count; }
         }
 
-        #endregion
+        #endregion Properties
 
         #region IDictionary<TKey,List<TValue>> Members
 
@@ -280,7 +280,7 @@ namespace VirtoCommerce.Platform.Core.Common
             get { return innerValues.Values; }
         }
 
-        #endregion
+        #endregion IDictionary<TKey,List<TValue>> Members
 
         #region ICollection<KeyValuePair<TKey,List<TValue>>> Members
 
@@ -324,7 +324,7 @@ namespace VirtoCommerce.Platform.Core.Common
             return ((ICollection<KeyValuePair<TKey, IList<TValue>>>)innerValues).Remove(item);
         }
 
-        #endregion
+        #endregion ICollection<KeyValuePair<TKey,List<TValue>>> Members
 
         #region IEnumerable<KeyValuePair<TKey,List<TValue>>> Members
 
@@ -336,7 +336,7 @@ namespace VirtoCommerce.Platform.Core.Common
             return innerValues.GetEnumerator();
         }
 
-        #endregion
+        #endregion IEnumerable<KeyValuePair<TKey,List<TValue>>> Members
 
         #region IEnumerable Members
 
@@ -348,6 +348,6 @@ namespace VirtoCommerce.Platform.Core.Common
             return innerValues.GetEnumerator();
         }
 
-        #endregion
+        #endregion IEnumerable Members
     }
 }

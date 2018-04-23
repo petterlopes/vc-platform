@@ -319,5 +319,5 @@ namespace VirtoCommerce.Platform.Testing.Helpers
         public int Position { get; set; }
     }
 
-    #endregion
+    #endregion Entity types
 }

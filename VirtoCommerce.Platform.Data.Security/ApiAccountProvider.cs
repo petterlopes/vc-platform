@@ -29,7 +29,7 @@ namespace VirtoCommerce.Platform.Data.Security
         public ApiAccountEntity GetAccountByAppId(ApiAccountType type, string appId)
         {
             var cacheKey = String.Join(":", "ApiAccount", type.ToString(), appId);
-            return _cacheManager.Get(cacheKey, "PlatformRegion",  () => LoadApiAccount(type, appId));
+            return _cacheManager.Get(cacheKey, "PlatformRegion", () => LoadApiAccount(type, appId));
         }
 
         public ApiAccountEntity GenerateApiCredentials(ApiAccountType type)
@@ -58,8 +58,7 @@ namespace VirtoCommerce.Platform.Data.Security
             return account;
         }
 
-        #endregion
-
+        #endregion IApiAccountProvider Members
 
         private ApiAccountEntity LoadApiAccount(ApiAccountType type, string appId)
         {

@@ -13,7 +13,6 @@ namespace VirtoCommerce.Platform.Data.Security.Authentication
     public abstract class ApiAuthenticationHandler<TOptions> : AuthenticationHandler<TOptions>
         where TOptions : ApiAuthenticationOptions
     {
-
         protected abstract string ExtractUserIdFromRequest();
 
         protected override async Task<AuthenticationTicket> AuthenticateCoreAsync()
@@ -51,7 +50,7 @@ namespace VirtoCommerce.Platform.Data.Security.Authentication
 
         protected virtual async Task<ClaimsIdentity> GetIdentityByUserId(string userId)
         {
-            var cacheKey = String.Join(":",  "GetIdentityByUserId", userId);
+            var cacheKey = String.Join(":", "GetIdentityByUserId", userId);
             var result = await Options.CacheManager.Get(cacheKey, "PlatformRegion", () => CreateIdentityByUserId(userId));
             return result;
         }

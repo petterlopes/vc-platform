@@ -14,8 +14,9 @@ namespace VirtoCommerce.Platform.Data.Model
         [Required]
         [StringLength(256)]
         public string Name { get; set; }
+
         public string Description { get; set; }
 
-		public virtual ObservableCollection<RolePermissionEntity> RolePermissions { get; set; }
+        public virtual ObservableCollection<RolePermissionEntity> RolePermissions { get; set; }
     }
 }

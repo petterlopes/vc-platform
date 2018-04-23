@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text.RegularExpressions;
 using DotLiquid;
 using VirtoCommerce.Platform.Core.Common;
 using VirtoCommerce.Platform.Core.Notifications;
@@ -79,7 +77,6 @@ namespace VirtoCommerce.Platform.Data.Notifications
             var templateBody = Template.Parse(template.Body);
             notification.Body = templateBody.Render(Hash.FromDictionary(myDict));
         }
-
 
         public NotificationParameter[] ResolveNotificationParameters(Notification notification)
         {

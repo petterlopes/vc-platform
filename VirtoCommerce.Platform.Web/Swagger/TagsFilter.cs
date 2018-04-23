@@ -60,7 +60,7 @@ namespace VirtoCommerce.Platform.Web.Swagger
             swaggerDoc.tags = tags;
         }
 
-        #endregion
+        #endregion IDocumentFilter Members
 
         #region IOperationFilter Members
 
@@ -82,6 +82,6 @@ namespace VirtoCommerce.Platform.Web.Swagger
             }
         }
 
-        #endregion
+        #endregion IOperationFilter Members
     }
 }

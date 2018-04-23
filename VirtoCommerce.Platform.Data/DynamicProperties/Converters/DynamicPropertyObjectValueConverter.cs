@@ -65,18 +65,23 @@ namespace VirtoCommerce.Platform.Data.DynamicProperties.Converters
                     case DynamicPropertyValueType.Boolean:
                         result.BooleanValue = propertyValue.Value.ToNullable<Boolean>();
                         break;
+
                     case DynamicPropertyValueType.DateTime:
                         result.DateTimeValue = propertyValue.Value.ToNullable<DateTime>();
                         break;
+
                     case DynamicPropertyValueType.Decimal:
                         result.DecimalValue = propertyValue.Value.ToNullable<Decimal>();
                         break;
+
                     case DynamicPropertyValueType.Integer:
                         result.IntegerValue = propertyValue.Value.ToNullable<Int32>();
                         break;
+
                     case DynamicPropertyValueType.ShortText:
                         result.ShortTextValue = (string)propertyValue.Value;
                         break;
+
                     default:
                         result.LongTextValue = (string)propertyValue.Value;
                         break;
@@ -91,14 +96,10 @@ namespace VirtoCommerce.Platform.Data.DynamicProperties.Converters
             if (target == null)
                 throw new ArgumentNullException("target");
 
-
             var patchInjectionPolicy = new PatchInjection<DynamicPropertyObjectValueEntity>(x => x.Locale, x => x.LongTextValue, x => x.BooleanValue, x => x.DateTimeValue,
                                                                                             x => x.DecimalValue, x => x.DictionaryItemId, x => x.IntegerValue, x => x.ShortTextValue);
             target.InjectFrom(patchInjectionPolicy, source);
-
         }
-
-
     }
 
     public class DynamicPropertyObjectValueComparer : IEqualityComparer<DynamicPropertyObjectValueEntity>
@@ -120,7 +121,6 @@ namespace VirtoCommerce.Platform.Data.DynamicProperties.Converters
             return 0;
         }
 
-
-        #endregion
+        #endregion IEqualityComparer<DynamicPropertyObjectValueEntity> Members
     }
 }

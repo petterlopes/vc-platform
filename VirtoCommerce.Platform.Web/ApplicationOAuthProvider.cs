@@ -85,13 +85,12 @@ namespace VirtoCommerce.Platform.Web
             return Task.FromResult<object>(null);
         }
 
-
         private static AuthenticationProperties CreateProperties(string userName)
         {
             var data = new Dictionary<string, string>
-			{
-				{ "userName", userName },
-			};
+            {
+                { "userName", userName },
+            };
             return new AuthenticationProperties(data);
         }
     }

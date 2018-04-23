@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -205,7 +205,6 @@ namespace VirtoCommerce.Platform.Web.Controllers.Api
                             }
                         }
                         retVal.AddRange(sampleDataInfos);
-
                     }
                 }
                 else
@@ -216,7 +215,6 @@ namespace VirtoCommerce.Platform.Web.Controllers.Api
             }
             return retVal;
         }
-
 
         public void SampleDataImportBackground(Uri url, string tmpPath, SampleDataImportPushNotification pushNotification)
         {
@@ -282,7 +280,7 @@ namespace VirtoCommerce.Platform.Web.Controllers.Api
             {
                 var localPath = HostingEnvironment.MapPath(importRequest.FileUrl);
 
-                //Load source data only from local file system 
+                //Load source data only from local file system
                 using (var stream = File.Open(localPath, FileMode.Open))
                 {
                     var manifest = importRequest.ToManifest();
@@ -320,7 +318,7 @@ namespace VirtoCommerce.Platform.Web.Controllers.Api
                 {
                     Directory.CreateDirectory(localTmpFolder);
                 }
-                //Import first to local tmp folder because Azure blob storage doesn't support some special file access mode 
+                //Import first to local tmp folder because Azure blob storage doesn't support some special file access mode
                 using (var stream = File.Open(localTmpPath, FileMode.OpenOrCreate))
                 {
                     var manifest = exportRequest.ToManifest();

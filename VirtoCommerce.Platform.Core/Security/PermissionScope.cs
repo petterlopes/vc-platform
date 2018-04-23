@@ -12,13 +12,14 @@ namespace VirtoCommerce.Platform.Core.Security
         {
             Type = this.GetType().Name;
         }
+
         /// <summary>
-        /// Define scope type influences the choice of ui pattern in role definition 
+        /// Define scope type influences the choice of ui pattern in role definition
         /// </summary>
         public string Type { get; set; }
 
         /// <summary>
-        /// Display representation 
+        /// Display representation
         /// </summary>
         public string Label { get; set; }
 
@@ -27,13 +28,13 @@ namespace VirtoCommerce.Platform.Core.Security
         /// </summary>
         public string Scope { get; set; }
 
-
         /// <summary>
-        /// Return all supported scope for given permission used in role permission configuration 
+        /// Return all supported scope for given permission used in role permission configuration
         /// </summary>
         /// <param name="permission"></param>
         /// <returns></returns>
-        public virtual bool IsScopeAvailableForPermission(string permission) {
+        public virtual bool IsScopeAvailableForPermission(string permission)
+        {
             return false;
         }
 
@@ -42,10 +43,11 @@ namespace VirtoCommerce.Platform.Core.Security
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public virtual IEnumerable<string> GetEntityScopeStrings(object entity) {
+        public virtual IEnumerable<string> GetEntityScopeStrings(object entity)
+        {
             return null;
         }
-      
+
         public override string ToString()
         {
             return Type + ":" + Scope;

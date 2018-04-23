@@ -4,6 +4,7 @@
     {
         string RoutePrefix { get; }
         string VirtualRoot { get; }
+
         string GetModuleDirectoryPath(string moduleId);
     }
 }

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Text.RegularExpressions;
 
 namespace VirtoCommerce.Platform.Core.Common
@@ -77,8 +77,6 @@ namespace VirtoCommerce.Platform.Core.Common
             throw new FormatException();
         }
 
-
-
         private static Version NormalizeVersionValue(Version version)
         {
             return new Version(version.Major,
@@ -122,6 +120,7 @@ namespace VirtoCommerce.Platform.Core.Common
             // Return true if the fields match:
             return _version == other._version;
         }
+
         public override int GetHashCode()
         {
             return _version.GetHashCode();
@@ -149,7 +148,7 @@ namespace VirtoCommerce.Platform.Core.Common
             return result;
         }
 
-        #endregion
+        #endregion IComparable Members
 
         public override string ToString()
         {

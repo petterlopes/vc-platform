@@ -7,6 +7,7 @@ namespace VirtoCommerce.Platform.Testing.Fixtures
     /*
      * http://xunit.github.io/docs/shared-context.html#class-fixture
      * */
+
     public class RepositoryDatabaseFixture<TRepository, TInitializer> : IDisposable
         where TRepository : DbContext, new()
         where TInitializer : IDatabaseInitializer<TRepository>, new()
@@ -34,7 +35,6 @@ namespace VirtoCommerce.Platform.Testing.Fixtures
             EnsureDatabaseInitialized(() => (TRepository)Activator.CreateInstance(typeof(TRepository), DatabaseConnectionString), () => Database.SetInitializer(new TInitializer()));
             Db = (TRepository)Activator.CreateInstance(typeof(TRepository), DatabaseConnectionString);
         }
-
 
         /// <summary>
         /// Ensures the database for the context is created and seeded.  This is typically used

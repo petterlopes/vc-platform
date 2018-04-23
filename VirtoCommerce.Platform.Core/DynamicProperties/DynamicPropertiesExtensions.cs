@@ -46,7 +46,7 @@ namespace VirtoCommerce.Platform.Core.DynamicProperties
         /// <param name="targetOwner"></param>
         public static void CopyPropertyValuesFrom(this IHasDynamicProperties targetOwner, IHasDynamicProperties sourceOwner)
         {
-            if(sourceOwner == null)
+            if (sourceOwner == null)
             {
                 throw new ArgumentNullException("sourceOwner");
             }
@@ -56,7 +56,7 @@ namespace VirtoCommerce.Platform.Core.DynamicProperties
             }
 
             var comparer = AnonymousComparer.Create((DynamicProperty x) => x.Name.ToLowerInvariant() + ":" + x.ValueType.ToString());
-            //Copy  property values for same properties  from one object to other 
+            //Copy  property values for same properties  from one object to other
             sourceOwner.DynamicProperties.CompareTo(targetOwner.DynamicProperties, comparer, (state, sourceProp, targetProp) =>
             {
                 if (state == EntryState.Modified)

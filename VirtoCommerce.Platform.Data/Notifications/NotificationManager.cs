@@ -28,7 +28,6 @@ namespace VirtoCommerce.Platform.Data.Notifications
             _notificationTemplateService = notificationTemplateService;
         }
 
-
         public void OverrideNotificationType<T>(Func<Notification> notificationFactory)
         {
             var replacedNotification = _notifications.FirstOrDefault(x => x().GetType() == typeof(T));
@@ -51,10 +50,10 @@ namespace VirtoCommerce.Platform.Data.Notifications
 
         public void UnregisterNotificationType<T>()
         {
-            if(!_unregisteredNotifications.Contains(typeof(T)))
+            if (!_unregisteredNotifications.Contains(typeof(T)))
             {
                 _unregisteredNotifications.Add(typeof(T));
-            }         
+            }
         }
 
         public Notification[] GetNotifications()
@@ -70,7 +69,7 @@ namespace VirtoCommerce.Platform.Data.Notifications
             {
                 ResolveTemplate(notification);
                 result = notification.SendNotification();
-            }            
+            }
             return result;
         }
 
@@ -221,7 +220,7 @@ namespace VirtoCommerce.Platform.Data.Notifications
                 retVal.Notifications = query.Skip(criteria.Skip)
                                             .Take(criteria.Take)
                                             .ToArray()
-                                            .Select(GetNotificationCoreModel)                                          
+                                            .Select(GetNotificationCoreModel)
                                             .ToList();
             }
 
@@ -246,12 +245,11 @@ namespace VirtoCommerce.Platform.Data.Notifications
             }
         }
 
-
         private Notification GetNotificationCoreModel(NotificationEntity entity)
         {
             var retVal = GetNewNotification(entity.Type);
 
-            // Type may have been unregistered by now. 
+            // Type may have been unregistered by now.
             retVal?.InjectFrom(entity);
 
             return retVal;

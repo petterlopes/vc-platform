@@ -1,4 +1,4 @@
-namespace VirtoCommerce.Platform.Core.Modularity
+﻿namespace VirtoCommerce.Platform.Core.Modularity
 {
     /// <summary>
     /// Defines the contract for the modules deployed in the application.

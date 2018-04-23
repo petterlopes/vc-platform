@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using VirtoCommerce.Platform.Core.Common;
 
 namespace VirtoCommerce.Platform.Core.Events
@@ -10,6 +10,7 @@ namespace VirtoCommerce.Platform.Core.Events
             Id = Guid.NewGuid().ToString();
             TimeStamp = DateTime.UtcNow;
         }
+
         public int Version { get; set; }
         public DateTimeOffset TimeStamp { get; set; }
     }

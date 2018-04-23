@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using Newtonsoft.Json;
-using VirtoCommerce.Platform.Core.Modularity;
 
 namespace VirtoCommerce.Platform.Web.Model.Modularity
 {
@@ -13,6 +9,7 @@ namespace VirtoCommerce.Platform.Web.Model.Modularity
         {
             ValidationErrors = new List<string>();
         }
+
         [JsonIgnore]
         public Core.Modularity.ModuleIdentity Identity
         {
@@ -21,6 +18,7 @@ namespace VirtoCommerce.Platform.Web.Model.Modularity
                 return new Core.Modularity.ModuleIdentity(Id, Version);
             }
         }
+
         public string Id { get; set; }
         public string Version { get; set; }
         public string PlatformVersion { get; set; }
@@ -42,6 +40,5 @@ namespace VirtoCommerce.Platform.Web.Model.Modularity
         public bool IsRemovable { get; set; }
         public bool IsInstalled { get; set; }
         public ModuleIdentity InstalledVersion { get; set; }
-
     }
 }

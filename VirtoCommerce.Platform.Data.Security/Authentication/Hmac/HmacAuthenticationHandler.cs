@@ -28,7 +28,6 @@ namespace VirtoCommerce.Platform.Data.Security.Authentication.Hmac
             return userId;
         }
 
-
         private bool IsValidSignature(ApiRequestSignature signature, ApiAccountEntity credentials)
         {
             var parameters = new[]

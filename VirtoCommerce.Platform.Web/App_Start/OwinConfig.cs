@@ -40,7 +40,7 @@ namespace VirtoCommerce.Platform.Web
                     Provider = new CookieAuthenticationProvider
                     {
                         // Enables the application to validate the security stamp when the user logs in.
-                        // This is a security feature which is used when you change a password or add an external login to your account.  
+                        // This is a security feature which is used when you change a password or add an external login to your account.
                         OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, ApplicationUser>(
                             validateInterval: authenticationOptions.CookiesValidateInterval,
                             regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
@@ -65,7 +65,6 @@ namespace VirtoCommerce.Platform.Web
                 var apiAccountProvider = container.Resolve<IApiAccountProvider>();
                 var claimsIdentityProvider = container.Resolve<IClaimsIdentityProvider>();
                 var cacheManager = container.Resolve<ICacheManager<object>>();
-
 
                 if (authenticationOptions.HmacEnabled)
                 {

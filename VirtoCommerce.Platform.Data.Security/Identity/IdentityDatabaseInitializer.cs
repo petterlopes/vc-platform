@@ -1,4 +1,4 @@
-using VirtoCommerce.Platform.Data.Infrastructure;
+﻿using VirtoCommerce.Platform.Data.Infrastructure;
 
 namespace VirtoCommerce.Platform.Data.Security.Identity
 {

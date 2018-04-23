@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Runtime.Serialization.Formatters;
 using System.Text;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
@@ -47,7 +46,6 @@ namespace VirtoCommerce.Platform.Core.Common
             using (var reader = new StringReader(xml))
             {
                 return (T)serializer.Deserialize(reader);
-
             }
         }
 
@@ -114,7 +112,6 @@ namespace VirtoCommerce.Platform.Core.Common
                 ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
                 TypeNameHandling = TypeNameHandling.Auto,
                 TypeNameAssemblyFormatHandling = TypeNameAssemblyFormatHandling.Full
-
             };
             return serializer;
         }

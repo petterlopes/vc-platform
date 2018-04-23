@@ -1,12 +1,12 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace VirtoCommerce.Platform.Core.Modularity
 {
     /// <summary>
-    /// This is the expected catalog definition for the ModuleManager. 
-    /// The ModuleCatalog holds information about the modules that can be used by the 
-    /// application. Each module is described in a ModuleInfo class, that records the 
-    /// name, type and location of the module. 
+    /// This is the expected catalog definition for the ModuleManager.
+    /// The ModuleCatalog holds information about the modules that can be used by the
+    /// application. Each module is described in a ModuleInfo class, that records the
+    /// name, type and location of the module.
     /// </summary>
     public interface IModuleCatalog
     {
@@ -23,8 +23,8 @@ namespace VirtoCommerce.Platform.Core.Modularity
         IEnumerable<ModuleInfo> GetDependentModules(ModuleInfo moduleInfo);
 
         /// <summary>
-        /// Returns the collection of <see cref="ModuleInfo"/>s that contain both the <see cref="ModuleInfo"/>s in 
-        /// <paramref name="modules"/>, but also all the modules they depend on. 
+        /// Returns the collection of <see cref="ModuleInfo"/>s that contain both the <see cref="ModuleInfo"/>s in
+        /// <paramref name="modules"/>, but also all the modules they depend on.
         /// </summary>
         /// <param name="modules">The modules to get the dependencies for.</param>
         /// <returns>

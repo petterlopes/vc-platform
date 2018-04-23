@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,7 +8,7 @@ using VirtoCommerce.Platform.Core.Properties;
 namespace VirtoCommerce.Platform.Core.Modularity
 {
     /// <summary>
-    /// Handles AppDomain's AssemblyResolve event to be able to load assemblies dynamically in 
+    /// Handles AppDomain's AssemblyResolve event to be able to load assemblies dynamically in
     /// the LoadFrom context, but be able to reference the type from assemblies loaded in the Load context.
     /// </summary>
     public class AssemblyResolver : IAssemblyResolver, IDisposable
@@ -131,6 +131,6 @@ namespace VirtoCommerce.Platform.Core.Modularity
             }
         }
 
-        #endregion
+        #endregion Implementation of IDisposable
     }
 }

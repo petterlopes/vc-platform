@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -44,7 +44,6 @@ namespace VirtoCommerce.Platform.Data.Infrastructure
             _interceptors = interceptors;
 
             Configuration.LazyLoadingEnabled = false;
-
         }
 
         /// <summary>
@@ -256,7 +255,7 @@ namespace VirtoCommerce.Platform.Data.Infrastructure
             ObjectContext.Refresh(RefreshMode.StoreWins, collection);
         }
 
-        #endregion
+        #endregion IRepository Members
 
         /// <summary>
         /// Saves all changes made in this context to the underlying database.
@@ -269,7 +268,6 @@ namespace VirtoCommerce.Platform.Data.Infrastructure
             return UnitOfWork.Commit();
         }
 
-
         /// <summary>
         /// Saves the changes internal.
         /// </summary>
@@ -280,6 +278,7 @@ namespace VirtoCommerce.Platform.Data.Infrastructure
         }
 
         #region Helper Methods
+
         /// <summary>
         /// Gets the object context.
         /// </summary>
@@ -296,7 +295,7 @@ namespace VirtoCommerce.Platform.Data.Infrastructure
         /// </value>
         protected ObjectStateManager ObjectStateManager => ObjectContext.ObjectStateManager;
 
-        #endregion
+        #endregion Helper Methods
 
         /// <summary>
         /// Entities deleted by batch command

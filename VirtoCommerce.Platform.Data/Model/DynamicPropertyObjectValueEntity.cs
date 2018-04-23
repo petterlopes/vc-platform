@@ -33,6 +33,7 @@ namespace VirtoCommerce.Platform.Data.Model
 
         [StringLength(512)]
         public string ShortTextValue { get; set; }
+
         public string LongTextValue { get; set; }
         public decimal? DecimalValue { get; set; }
         public int? IntegerValue { get; set; }
@@ -45,7 +46,6 @@ namespace VirtoCommerce.Platform.Data.Model
         public string DictionaryItemId { get; set; }
         public virtual DynamicPropertyDictionaryItemEntity DictionaryItem { get; set; }
 
-
         public object RawValue()
         {
             if (DictionaryItemId != null)
@@ -55,18 +55,24 @@ namespace VirtoCommerce.Platform.Data.Model
             {
                 case TypeBoolean:
                     return BooleanValue;
+
                 case TypeDateTime:
                     return DateTimeValue;
+
                 case TypeDecimal:
                     return DecimalValue;
+
                 case TypeInteger:
                     return IntegerValue;
+
                 case TypeLongText:
                 case TypeHtml:
                 case TypeImage:
                     return LongTextValue;
+
                 case TypeShortText:
                     return ShortTextValue;
+
                 default:
                     return null;
             }
@@ -81,18 +87,24 @@ namespace VirtoCommerce.Platform.Data.Model
             {
                 case TypeBoolean:
                     return BooleanValue == null ? null : BooleanValue.Value.ToString();
+
                 case TypeDateTime:
                     return DateTimeValue == null ? null : DateTimeValue.Value.ToString("O", formatProvider);
+
                 case TypeDecimal:
                     return DecimalValue == null ? null : DecimalValue.Value.ToString(formatProvider);
+
                 case TypeInteger:
                     return IntegerValue == null ? null : IntegerValue.Value.ToString(formatProvider);
+
                 case TypeLongText:
                 case TypeHtml:
                 case TypeImage:
                     return LongTextValue;
+
                 case TypeShortText:
                     return ShortTextValue;
+
                 default:
                     return base.ToString();
             }

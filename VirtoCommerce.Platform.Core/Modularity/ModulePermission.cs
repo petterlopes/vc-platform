@@ -6,8 +6,10 @@ namespace VirtoCommerce.Platform.Core.Modularity
     {
         [XmlAttribute("id")]
         public string Id { get; set; }
+
         [XmlAttribute("name")]
         public string Name { get; set; }
+
         [XmlAttribute("description")]
         public string Description { get; set; }
     }

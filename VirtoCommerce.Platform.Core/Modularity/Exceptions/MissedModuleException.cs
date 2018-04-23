@@ -47,7 +47,7 @@ namespace VirtoCommerce.Platform.Core.Modularity.Exceptions
         /// </summary>
         /// <param name="missedDependenciesMatrix">The dependency matrix of the missed modules.</param>
         /// <param name="message">The error message that explains the reason for the exception.</param>
-        /// <param name="innerException">The exception that is the cause of the current exception, 
+        /// <param name="innerException">The exception that is the cause of the current exception,
         /// or a <see langword="null"/> reference if no inner exception is specified.</param>
         public MissedModuleException(IDictionary<string, IEnumerable<string>> missedDependenciesMatrix, string message, Exception innerException)
             : base(string.Join(", ", missedDependenciesMatrix.Values.SelectMany(m => m).Distinct()), message, innerException)

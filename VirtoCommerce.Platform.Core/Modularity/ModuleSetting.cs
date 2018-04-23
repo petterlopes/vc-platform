@@ -1,4 +1,4 @@
-using System.Globalization;
+﻿using System.Globalization;
 using System.Xml.Serialization;
 
 namespace VirtoCommerce.Platform.Core.Modularity
@@ -40,7 +40,6 @@ namespace VirtoCommerce.Platform.Core.Modularity
         [XmlArrayItem("value")]
         public string[] ArrayValues { get; set; }
 
-
         public object RawDefaultValue()
         {
             return RawValue(DefaultValue);
@@ -61,9 +60,11 @@ namespace VirtoCommerce.Platform.Core.Modularity
                     case TypeBoolean:
                         result = bool.Parse(value);
                         break;
+
                     case TypeInteger:
                         result = int.Parse(value, CultureInfo.InvariantCulture);
                         break;
+
                     case TypeDecimal:
                         result = decimal.Parse(value, CultureInfo.InvariantCulture);
                         break;

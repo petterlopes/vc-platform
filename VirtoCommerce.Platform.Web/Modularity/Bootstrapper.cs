@@ -1,5 +1,4 @@
-using System;
-using Common.Logging;
+﻿using Common.Logging;
 using Microsoft.Practices.ServiceLocation;
 using VirtoCommerce.Platform.Core.Modularity;
 
@@ -26,7 +25,6 @@ namespace VirtoCommerce.Platform.Web.Modularity
         /// <value>The default <see cref="IModuleCatalog"/> instance.</value>
         protected IModuleCatalog ModuleCatalog { get; set; }
 
-
         /// <summary>
         /// Create the <see cref="ILog" /> used by the bootstrapper.
         /// </summary>
@@ -46,7 +44,6 @@ namespace VirtoCommerce.Platform.Web.Modularity
         {
             this.Run(true);
         }
-
 
         /// <summary>
         /// Creates the <see cref="IModuleCatalog"/> used by Prism.
@@ -81,7 +78,6 @@ namespace VirtoCommerce.Platform.Web.Modularity
             manager.Run();
         }
 
-
         /// <summary>
         /// Initializes the shell.
         /// </summary>
@@ -92,7 +88,7 @@ namespace VirtoCommerce.Platform.Web.Modularity
         /// <summary>
         /// Run the bootstrapper process.
         /// </summary>
-        /// <param name="runWithDefaultConfiguration">If <see langword="true"/>, registers default 
+        /// <param name="runWithDefaultConfiguration">If <see langword="true"/>, registers default
         /// Prism Library services in the container. This is the default behavior.</param>
         public abstract void Run(bool runWithDefaultConfiguration);
 

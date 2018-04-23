@@ -23,7 +23,7 @@ namespace VirtoCommerce.Platform.Data.Model
         [StringLength(1024)]
         [Required]
         public string Name { get; set; }
-        
+
         [StringLength(128)]
         public string MimeType { get; set; }
 
@@ -40,12 +40,12 @@ namespace VirtoCommerce.Platform.Data.Model
         /// </summary>
         [StringLength(64)]
         public string Group { get; set; }
-        
+
         public virtual AssetEntryEntity FromModel(AssetEntry asset)
         {
             if (asset == null)
                 throw new ArgumentNullException(nameof(asset));
-            
+
             LanguageCode = asset.LanguageCode;
             Name = asset.BlobInfo.FileName;
             MimeType = asset.BlobInfo.ContentType;

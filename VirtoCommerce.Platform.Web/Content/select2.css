@@ -1,4 +1,4 @@
-/*
+﻿/*
 Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
 */
 .select2-container {
@@ -357,7 +357,6 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
     color: #000;
 }
 
-
 .select2-results .select2-no-results,
 .select2-results .select2-searching,
 .select2-results .select2-selection-limit {
@@ -411,7 +410,6 @@ disabled look for disabled choices in the results dropdown
 .select2-container.select2-container-disabled .select2-choice abbr {
     display: none;
 }
-
 
 /* multiselect */
 
@@ -569,7 +567,6 @@ disabled look for disabled choices in the results dropdown
     background: none;
 }
 /* end multiselect */
-
 
 .select2-result-selectable .select2-match,
 .select2-result-unselectable .select2-match {

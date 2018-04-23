@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Practices.Unity;
 
 namespace VirtoCommerce.Platform.Web.Modularity
@@ -17,7 +17,7 @@ namespace VirtoCommerce.Platform.Web.Modularity
         /// <returns><see langword="true"/> if there is a type mapping registered for <paramref name="type"/>.</returns>
         /// <remarks>In order to use this extension method, you first need to add the
         /// <see cref="IUnityContainer"/> extension to the <see cref="UnityBootstrapperExtension"/>.
-        /// </remarks>        
+        /// </remarks>
         public static bool IsTypeRegistered(this IUnityContainer container, Type type)
         {
             return UnityBootstrapperExtension.IsTypeRegistered(container, type);

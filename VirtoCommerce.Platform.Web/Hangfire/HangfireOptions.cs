@@ -1,4 +1,4 @@
-namespace VirtoCommerce.Platform.Web.Hangfire
+﻿namespace VirtoCommerce.Platform.Web.Hangfire
 {
     public class HangfireOptions
     {

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace VirtoCommerce.Platform.Core.Common
 {
@@ -28,12 +26,12 @@ namespace VirtoCommerce.Platform.Core.Common
             {
                 throw new ArgumentNullException(nameof(getParentFunc));
             }
-            if (ReferenceEquals(item, null)) yield break;
+            if (ReferenceEquals(item, null))
+                yield break;
             for (TItem curItem = getParentFunc(item); !ReferenceEquals(curItem, null); curItem = getParentFunc(curItem))
             {
                 yield return curItem;
             }
         }
-
     }
 }

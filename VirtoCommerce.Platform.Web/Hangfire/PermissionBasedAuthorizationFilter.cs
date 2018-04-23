@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Hangfire.Dashboard;
 using Microsoft.Owin;
 using VirtoCommerce.Platform.Core.Security;

@@ -6,7 +6,6 @@ using System.Web.Optimization;
 using Microsoft.Practices.ServiceLocation;
 using VirtoCommerce.Platform.Core.Common;
 using VirtoCommerce.Platform.Core.Modularity;
-using VirtoCommerce.Platform.Core.Modularity.Exceptions;
 
 namespace VirtoCommerce.Platform.Web
 {
@@ -34,10 +33,11 @@ namespace VirtoCommerce.Platform.Web
                     "~/Content/themes/main/css/main.css"
                 ));
 
-            #endregion
+            #endregion CSS
 
             #region JS
-            //AngularJS 
+
+            //AngularJS
             //Note: must match the real path (~/Scripts/.) to find source map files references from .min.js (ex. # sourceMappingURL=angular-resource.min.js.map)
             bundles.Add(
                 new ScriptBundle(Startup.VirtualRoot + "/scripts/angular")
@@ -48,7 +48,7 @@ namespace VirtoCommerce.Platform.Web
                     .IncludeDirectoryAndFixRoot("~/Scripts/i18n/", "*.js", true));
             bundles.IgnoreList.Ignore("angular-locale_*");
 
-            #endregion
+            #endregion JS
 
             // Register styles and scripts listed in module manifests ordered by dependency.
             var moduleCatalog = ServiceLocator.Current.GetInstance<IModuleCatalog>();
@@ -126,7 +126,6 @@ namespace VirtoCommerce.Platform.Web
                 {
                     var notFoundPath = file?.VirtualPath ?? directory?.VirtualPath;
                     ((ManifestModuleInfo)item.Module).Errors.Add($"Path not found ({notFoundPath}).");
-
                 }
             }
 
@@ -148,7 +147,7 @@ namespace VirtoCommerce.Platform.Web
         {
         }
 
-        #endregion
+        #endregion Constructors and Destructors
 
         #region Public Properties
 
@@ -158,7 +157,7 @@ namespace VirtoCommerce.Platform.Web
             set { throw new Exception("Unable to override Non-Ordered bundler"); }
         }
 
-        #endregion
+        #endregion Public Properties
 
         #region Public Methods and Operators
 
@@ -171,10 +170,10 @@ namespace VirtoCommerce.Platform.Web
             return this;
         }
 
-        #endregion
+        #endregion Public Methods and Operators
     }
 
-    // This provides files in the same order as they have been added. 
+    // This provides files in the same order as they have been added.
     public class NonOrderingBundleOrderer : IBundleOrderer
     {
         public IEnumerable<BundleFile> OrderFiles(BundleContext context, IEnumerable<BundleFile> files)

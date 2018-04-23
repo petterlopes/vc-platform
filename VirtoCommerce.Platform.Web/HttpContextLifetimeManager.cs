@@ -54,6 +54,6 @@ namespace VirtoCommerce.Platform.Web
             }
         }
 
-        #endregion
+        #endregion Overrides of LifetimeManager
     }
 }

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using VirtoCommerce.Platform.Core.Common;
 using VirtoCommerce.Platform.Core.Messages;
 

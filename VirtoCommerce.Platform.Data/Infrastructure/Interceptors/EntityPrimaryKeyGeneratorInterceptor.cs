@@ -15,6 +15,5 @@ namespace VirtoCommerce.Platform.Data.Infrastructure.Interceptors
                 entity.Id = Guid.NewGuid().ToString("N");
             }
         }
-
     }
 }

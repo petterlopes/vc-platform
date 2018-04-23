@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace VirtoCommerce.Platform.Core.Common
 {
     /// <summary>
     /// Repository interface. Provides base interface for all repositories used in the framework.
     /// </summary>
-	public interface IRepository :IDisposable
-	{
+	public interface IRepository : IDisposable
+    {
         /// <summary>
         /// Gets the unit of work. This class actually saves the data into underlying storage.
         /// </summary>
@@ -69,5 +67,5 @@ namespace VirtoCommerce.Platform.Core.Common
         /// </summary>
         /// <param name="collection">The collection.</param>
         void Refresh(IEnumerable collection);
-	}
+    }
 }

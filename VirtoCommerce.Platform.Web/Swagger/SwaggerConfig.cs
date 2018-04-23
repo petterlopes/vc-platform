@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -38,7 +37,7 @@ namespace VirtoCommerce.Platform.Web.Swagger
             {
                 EnableSwagger(module.ModuleName, httpConfiguration, container, routePrefix, xmlCommentsFilePaths, module.UseFullTypeNameInSwagger, module.ModuleInstance.GetType().Assembly);
             }
-           
+
             // Add full swagger generator
             httpConfiguration.EnableSwagger(routePrefix + "docs/{apiVersion}", c =>
             {
@@ -91,15 +90,18 @@ namespace VirtoCommerce.Platform.Web.Swagger
                 //we are behind a reverse proxy, use the host that was used by the client
                 if (message.Headers.Contains("X-Forwarded-Host"))
                 {
-                    //when multiple apache httpd are chained, each proxy append to the header 
+                    //when multiple apache httpd are chained, each proxy append to the header
                     //with a comma (see //https://httpd.apache.org/docs/2.4/mod/mod_proxy.html#x-headers).
                     string protocol = message.Headers.GetValues("X-Forwarded-Proto")?.FirstOrDefault()?.Split(',')[0];
                     var host = message.Headers.GetValues("X-Forwarded-Host")?.FirstOrDefault()?.Split(',')[0];
-                    var port =  message.Headers.GetValues("x-Forwarded-Port")?.FirstOrDefault()?.Split(',')[0];
+                    var port = message.Headers.GetValues("x-Forwarded-Port")?.FirstOrDefault()?.Split(',')[0];
 
-                    if (String.IsNullOrEmpty(protocol)) protocol = message.RequestUri.Scheme;
-                    if (String.IsNullOrEmpty(host)) host = message.RequestUri.Host;
-                    if (String.IsNullOrEmpty(port)) port = message.RequestUri.Port.ToString();
+                    if (String.IsNullOrEmpty(protocol))
+                        protocol = message.RequestUri.Scheme;
+                    if (String.IsNullOrEmpty(host))
+                        host = message.RequestUri.Host;
+                    if (String.IsNullOrEmpty(port))
+                        port = message.RequestUri.Port.ToString();
 
                     var uriBuilder = new UriBuilder(message.RequestUri)
                     {
@@ -108,7 +110,6 @@ namespace VirtoCommerce.Platform.Web.Swagger
                         Port = Int32.Parse(port)
                     };
                     return uriBuilder.Uri;
-
                 }
             }
             return message.RequestUri;

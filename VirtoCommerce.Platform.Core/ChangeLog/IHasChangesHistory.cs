@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace VirtoCommerce.Platform.Core.ChangeLog
 {
-	public interface IHasChangesHistory
-	{
+    public interface IHasChangesHistory
+    {
         string Id { get; set; }
-		ICollection<OperationLog> OperationsLog { get; set; }
-	}
+        ICollection<OperationLog> OperationsLog { get; set; }
+    }
 }

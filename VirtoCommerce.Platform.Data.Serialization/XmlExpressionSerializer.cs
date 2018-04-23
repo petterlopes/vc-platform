@@ -24,7 +24,6 @@ namespace VirtoCommerce.Platform.Data.Serialization
             return result;
         }
 
-
         private static ExpressionSerializer GetSerializer()
         {
             var typeResolver = new TypeResolver(assemblies: AppDomain.CurrentDomain.GetAssemblies(), knownTypes: null);

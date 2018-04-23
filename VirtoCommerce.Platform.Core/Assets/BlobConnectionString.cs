@@ -13,11 +13,14 @@ namespace VirtoCommerce.Platform.Core.Assets
         private BlobConnectionString()
         {
         }
+
         public string Provider { get; private set; }
+
         /// <summary>
         /// Chroot path. Base for blob resources
         /// </summary>
         public string RootPath { get; private set; }
+
         /// <summary>
         /// Blob public base url which blobs can be gets
         /// </summary>

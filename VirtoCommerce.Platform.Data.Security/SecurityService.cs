@@ -43,6 +43,7 @@ namespace VirtoCommerce.Platform.Data.Security
         }
 
         #region ISecurityService Members
+
         public virtual async Task<ApplicationUserExtended> FindByNameAsync(string userName, UserDetails detailsLevel)
         {
             var user = await GetApplicationUserByNameAsync(userName);
@@ -200,7 +201,6 @@ namespace VirtoCommerce.Platform.Data.Security
 
                     if (dbUser != null)
                     {
-
                         await userManager.DeleteAsync(dbUser);
 
                         using (var repository = _platformRepository())
@@ -342,7 +342,7 @@ namespace VirtoCommerce.Platform.Data.Security
                 users = await query.OrderBy(x => x.UserName)
                                  .Skip(request.SkipCount)
                                  .Take(request.TakeCount)
-                                 .ToArrayAsync();                
+                                 .ToArrayAsync();
             }
             var extendedUsers = new List<ApplicationUserExtended>();
 
@@ -433,7 +433,7 @@ namespace VirtoCommerce.Platform.Data.Security
             }
         }
 
-        #endregion
+        #endregion ISecurityService Members
 
         protected virtual ApplicationUserExtended FindByName(string userName, UserDetails detailsLevel)
         {

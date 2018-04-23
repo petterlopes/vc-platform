@@ -1,24 +1,24 @@
-namespace VirtoCommerce.Platform.Core.Modularity
+﻿namespace VirtoCommerce.Platform.Core.Modularity
 {
     /// <summary>
-    /// Defines the states a <see cref="ModuleInfo"/> can be in, with regards to the module loading and initialization process. 
+    /// Defines the states a <see cref="ModuleInfo"/> can be in, with regards to the module loading and initialization process.
     /// </summary>
     public enum ModuleState
     {
         /// <summary>
-        /// Initial state for <see cref="ModuleInfo"/>s. The <see cref="ModuleInfo"/> is defined, 
-        /// but it has not been loaded, retrieved or initialized yet. 
+        /// Initial state for <see cref="ModuleInfo"/>s. The <see cref="ModuleInfo"/> is defined,
+        /// but it has not been loaded, retrieved or initialized yet.
         /// </summary>
         NotStarted,
 
         /// <summary>
         /// The assembly that contains the type of the module is currently being loaded by an instance of a
-        /// <see cref="IModuleTypeLoader"/>. 
+        /// <see cref="IModuleTypeLoader"/>.
         /// </summary>
         LoadingTypes,
 
         /// <summary>
-        /// The assembly that holds the Module is present. This means the type of the <see cref="IModule"/> can be instantiated and initialized. 
+        /// The assembly that holds the Module is present. This means the type of the <see cref="IModule"/> can be instantiated and initialized.
         /// </summary>
         ReadyForInitialization,
 
@@ -28,7 +28,7 @@ namespace VirtoCommerce.Platform.Core.Modularity
         Initializing,
 
         /// <summary>
-        /// The module is initialized and ready to be used. 
+        /// The module is initialized and ready to be used.
         /// </summary>
         Initialized
     }

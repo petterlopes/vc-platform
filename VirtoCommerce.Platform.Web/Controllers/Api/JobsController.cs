@@ -29,7 +29,6 @@ namespace VirtoCommerce.Platform.Web.Controllers.Api
             return Ok(result);
         }
 
-
         private static Job GetJob(string jobId)
         {
             var result = new Job { Id = jobId };

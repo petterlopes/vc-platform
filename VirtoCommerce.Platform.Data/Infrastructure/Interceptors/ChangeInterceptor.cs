@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data;
+﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
-using System.Data.Entity;
 
 namespace VirtoCommerce.Platform.Data.Infrastructure.Interceptors
 {
@@ -18,9 +13,11 @@ namespace VirtoCommerce.Platform.Data.Infrastructure.Interceptors
                 case EntityState.Added:
                     this.OnBeforeInsert(item, tItem);
                     break;
+
                 case EntityState.Deleted:
                     this.OnBeforeDelete(item, tItem);
                     break;
+
                 case EntityState.Modified:
                     this.OnBeforeUpdate(item, tItem);
                     break;
@@ -35,9 +32,11 @@ namespace VirtoCommerce.Platform.Data.Infrastructure.Interceptors
                 case EntityState.Added:
                     this.OnAfterInsert(item, tItem);
                     break;
+
                 case EntityState.Deleted:
                     this.OnAfterDelete(item, tItem);
                     break;
+
                 case EntityState.Modified:
                     this.OnAfterUpdate(item, tItem);
                     break;
@@ -77,8 +76,6 @@ namespace VirtoCommerce.Platform.Data.Infrastructure.Interceptors
         public ChangeInterceptor()
             : base(typeof(T))
         {
-
         }
     }
-
 }

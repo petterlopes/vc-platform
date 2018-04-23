@@ -30,6 +30,7 @@ namespace VirtoCommerce.Platform.Data.Assets
         }
 
         #region IBlobStorageProvider members
+
         /// <summary>
         /// Get blog info by url
         /// </summary>
@@ -57,7 +58,6 @@ namespace VirtoCommerce.Platform.Data.Assets
                     ModifiedDate = fileInfo.LastWriteTimeUtc
                 };
                 retVal.RelativeUrl = GetRelativeUrl(retVal.Url);
-
             }
             return retVal;
         }
@@ -94,7 +94,6 @@ namespace VirtoCommerce.Platform.Data.Assets
             }
             return File.Open(filePath, FileMode.Create);
         }
-
 
         /// <summary>
         /// Search folders and blobs in folder
@@ -170,7 +169,6 @@ namespace VirtoCommerce.Platform.Data.Assets
             {
                 Directory.CreateDirectory(path);
             }
-
         }
 
         /// <summary>
@@ -204,7 +202,7 @@ namespace VirtoCommerce.Platform.Data.Assets
             }
         }
 
-        #endregion
+        #endregion IBlobStorageProvider members
 
         #region IBlobUrlResolver Members
 
@@ -222,7 +220,7 @@ namespace VirtoCommerce.Platform.Data.Assets
             return new Uri(retVal).ToString();
         }
 
-        #endregion
+        #endregion IBlobUrlResolver Members
 
         protected string GetRelativeUrl(string url)
         {
@@ -252,7 +250,7 @@ namespace VirtoCommerce.Platform.Data.Assets
                 }
                 retVal += url;
                 retVal = retVal.Replace("/", "\\").Replace("\\\\", "\\");
-            }       
+            }
             return Uri.UnescapeDataString(retVal);
         }
 

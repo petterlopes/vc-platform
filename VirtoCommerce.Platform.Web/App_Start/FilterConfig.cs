@@ -11,13 +11,14 @@ namespace VirtoCommerce.Platform.Web
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
-			filters.Add(new AiHandleErrorAttribute());
+            filters.Add(new AiHandleErrorAttribute());
 
-			System.Web.Http.GlobalConfiguration.Configuration.Filters.Add(new ResponseTimeHeaderFilter());
+            System.Web.Http.GlobalConfiguration.Configuration.Filters.Add(new ResponseTimeHeaderFilter());
         }
     }
+
     /// <summary>
-    /// Filter add X-Response-Time header to response contains elapsed response time in milliseconds 
+    /// Filter add X-Response-Time header to response contains elapsed response time in milliseconds
     /// </summary>
     public class ResponseTimeHeaderFilter : System.Web.Http.Filters.ActionFilterAttribute
     {

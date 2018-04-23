@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -10,7 +10,7 @@ using VirtoCommerce.Platform.Web.Resources;
 namespace VirtoCommerce.Platform.Web.Modularity
 {
     /// <summary>
-    /// Component responsible for coordinating the modules' type loading and module initialization process. 
+    /// Component responsible for coordinating the modules' type loading and module initialization process.
     /// </summary>
     public class ModuleManager : IModuleManager, IDisposable
     {
@@ -56,7 +56,6 @@ namespace VirtoCommerce.Platform.Web.Modularity
             get { return this.moduleCatalog; }
         }
 
-
         /// <summary>
         /// Raised repeatedly to provide progress as modules are loaded in the background.
         /// </summary>
@@ -98,7 +97,6 @@ namespace VirtoCommerce.Platform.Web.Modularity
             this.LoadModulesWhenAvailable();
         }
 
-
         /// <summary>
         /// Loads and initializes the module on the <see cref="ModuleCatalog"/> with the name <paramref name="moduleName"/>.
         /// </summary>
@@ -125,8 +123,8 @@ namespace VirtoCommerce.Platform.Web.Modularity
         }
 
         /// <summary>
-        /// Returns the list of registered <see cref="IModuleTypeLoader"/> instances that will be 
-        /// used to load the types of modules. 
+        /// Returns the list of registered <see cref="IModuleTypeLoader"/> instances that will be
+        /// used to load the types of modules.
         /// </summary>
         /// <value>The module type loaders.</value>
         public virtual IEnumerable<IModuleTypeLoader> ModuleTypeLoaders
@@ -162,8 +160,8 @@ namespace VirtoCommerce.Platform.Web.Modularity
 
             if (moduleInfo.State == ModuleState.NotStarted)
             {
-                // If we can instantiate the type, that means the module's assembly is already loaded into 
-                // the AppDomain and we don't need to retrieve it. 
+                // If we can instantiate the type, that means the module's assembly is already loaded into
+                // the AppDomain and we don't need to retrieve it.
                 bool isAvailable = Type.GetType(moduleInfo.ModuleType) != null;
                 if (isAvailable)
                 {
@@ -287,7 +285,7 @@ namespace VirtoCommerce.Platform.Web.Modularity
         /// <summary>
         /// Handles any exception occurred in the module typeloading process,
         /// logs the error using the <see cref="ILog"/> and throws a <see cref="ModuleTypeLoadingException"/>.
-        /// This method can be overridden to provide a different behavior. 
+        /// This method can be overridden to provide a different behavior.
         /// </summary>
         /// <param name="moduleInfo">The module metadata where the error happenened.</param>
         /// <param name="exception">The exception thrown that is the cause of the current error.</param>
@@ -375,6 +373,6 @@ namespace VirtoCommerce.Platform.Web.Modularity
             }
         }
 
-        #endregion
+        #endregion Implementation of IDisposable
     }
 }

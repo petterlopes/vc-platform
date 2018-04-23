@@ -26,6 +26,6 @@ namespace VirtoCommerce.Platform.Data.Security.Identity
             return identity;
         }
 
-        #endregion
+        #endregion IClaimsIdentityProvider Members
     }
 }

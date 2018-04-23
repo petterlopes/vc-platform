@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace VirtoCommerce.Platform.Core.Notifications
 {
-	public class SearchNotificationsResult
-	{
-		public ICollection<Notification> Notifications { get; set; }
-		public int TotalCount { get; set; }
-	}
+    public class SearchNotificationsResult
+    {
+        public ICollection<Notification> Notifications { get; set; }
+        public int TotalCount { get; set; }
+    }
 }

@@ -1,5 +1,4 @@
 ﻿using VirtoCommerce.Platform.Core.Notifications;
-using VirtoCommerce.Platform.Data.Infrastructure;
 
 namespace VirtoCommerce.Platform.Data.Notifications
 {

@@ -1,6 +1,5 @@
-namespace VirtoCommerce.Platform.Data.Repositories.Migrations
+﻿namespace VirtoCommerce.Platform.Data.Repositories.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
 
     public partial class ApiAccountName : DbMigration

@@ -28,6 +28,7 @@ namespace VirtoCommerce.Platform.Data.ExportImport
             NotificationTemplates = new List<NotificationTemplate>();
             AssetEntries = new List<AssetEntry>();
         }
+
         public bool IsNotEmpty
         {
             get
@@ -35,6 +36,7 @@ namespace VirtoCommerce.Platform.Data.ExportImport
                 return Users.Any() || Settings.Any();
             }
         }
+
         public ICollection<ApplicationUserExtended> Users { get; set; }
         public ICollection<Role> Roles { get; set; }
         public ICollection<SettingEntry> Settings { get; set; }
@@ -43,8 +45,6 @@ namespace VirtoCommerce.Platform.Data.ExportImport
         public ICollection<NotificationTemplate> NotificationTemplates { get; set; }
         public ICollection<AssetEntry> AssetEntries { get; set; }
     }
-
-
 
     public class PlatformExportImportManager : IPlatformExportImportManager
     {
@@ -158,11 +158,10 @@ namespace VirtoCommerce.Platform.Data.ExportImport
                 ImportModulesInternal(package, manifest, progressCallback);
                 //Reset cache
                 _cacheManager.Clear();
-
             }
         }
 
-        #endregion
+        #endregion IPlatformExportImportManager Members
 
         private void ImportPlatformEntriesInternal(Package package, PlatformExportManifest manifest, Action<ExportImportProgressInfo> progressCallback)
         {
@@ -224,11 +223,11 @@ namespace VirtoCommerce.Platform.Data.ExportImport
                     _notificationTemplateService.Update(platformEntries.NotificationTemplates.ToArray());
                 }
 
-                //Import asset entires 
+                //Import asset entires
                 if (!platformEntries.AssetEntries.IsNullOrEmpty())
                 {
                     var totalAssetsEntriesCount = platformEntries.AssetEntries.Count();
-                    const int batchSize = 50;                
+                    const int batchSize = 50;
                     for (var i = 0; i <= totalAssetsEntriesCount; i += batchSize)
                     {
                         progressInfo.Description = $"Asset: {Math.Min(totalAssetsEntriesCount, i + batchSize) } of {totalAssetsEntriesCount} asset entries have been imported...";
@@ -248,7 +247,7 @@ namespace VirtoCommerce.Platform.Data.ExportImport
             {
                 //Roles
                 platformExportObj.Roles = _roleManagementService.SearchRoles(new RoleSearchRequest { SkipCount = 0, TakeCount = int.MaxValue }).Roles;
-                //users 
+                //users
                 var usersResult = Task.Run(() => _securityService.SearchUsersAsync(new UserSearchRequest { TakeCount = int.MaxValue })).Result;
                 progressInfo.Description = $"Security: {usersResult.Users.Count()} users exporting...";
                 progressCallback(progressInfo);
@@ -290,7 +289,7 @@ namespace VirtoCommerce.Platform.Data.ExportImport
             progressInfo.Description = "Asset: Evaluate asset entries count...";
             progressCallback(progressInfo);
             const int batchSize = 50;
-            var totalAssetsEntriesCount =  _assetEntrySearchService.SearchAssetEntries(new AssetEntrySearchCriteria { Skip = 0, Take = 0 }).TotalCount;
+            var totalAssetsEntriesCount = _assetEntrySearchService.SearchAssetEntries(new AssetEntrySearchCriteria { Skip = 0, Take = 0 }).TotalCount;
             for (var i = 0; i <= totalAssetsEntriesCount; i += batchSize)
             {
                 progressInfo.Description = $"Asset: {Math.Min(totalAssetsEntriesCount, i + batchSize) } of {totalAssetsEntriesCount} asset entries have been loaded...";
@@ -371,9 +370,7 @@ namespace VirtoCommerce.Platform.Data.ExportImport
                     module.PartUri = modulePartUri.ToString();
                 }
             }
-
         }
-
 
         private ManifestModuleInfo[] InnerGetModulesWithInterface(Type interfaceType)
         {
@@ -393,6 +390,5 @@ namespace VirtoCommerce.Platform.Data.ExportImport
             };
             return serializer;
         }
-
     }
 }

@@ -1,4 +1,4 @@
-namespace VirtoCommerce.Platform.Core.Common
+﻿namespace VirtoCommerce.Platform.Core.Common
 {
     /// <summary>
     /// Cancellation token abstraction.

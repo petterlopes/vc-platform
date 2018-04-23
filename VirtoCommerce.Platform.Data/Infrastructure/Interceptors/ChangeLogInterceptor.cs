@@ -63,7 +63,6 @@ namespace VirtoCommerce.Platform.Data.Infrastructure.Interceptors
             }
         }
 
-
         private void SaveChangesToLog(IPlatformRepository repository, EntityState entityState, IEnumerable<Entity> entities)
         {
             foreach (var entity in entities)

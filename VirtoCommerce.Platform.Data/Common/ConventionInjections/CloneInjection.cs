@@ -255,7 +255,6 @@ namespace VirtoCommerce.Platform.Data.Common.ConventionInjections
             {
                 object child = null;
 
-
                 string sourceChildGuid = sourceChild.GetType().GetProperties().AsEnumerable().
                              FirstOrDefault(prop => Attribute.IsDefined(prop, typeof(KeyAttribute))).GetValue(sourceChild, null).ToString();
 
@@ -272,10 +271,7 @@ namespace VirtoCommerce.Platform.Data.Common.ConventionInjections
                     child = this.FindInList(list, sourceChildGuid);
                     child.InjectFrom(this, sourceChild);
                 }
-
-
             }
-
         }
 
         private void DeleteFromTargetCollection(ConventionInfo c, Type targetCollectionInterface, Type targetChildType, object list)

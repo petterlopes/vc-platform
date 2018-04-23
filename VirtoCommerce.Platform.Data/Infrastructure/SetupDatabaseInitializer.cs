@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using VirtoCommerce.Platform.Core.Common;
 using VirtoCommerce.Platform.Data.Common;
+
 namespace VirtoCommerce.Platform.Data.Infrastructure
 {
     /// <summary>

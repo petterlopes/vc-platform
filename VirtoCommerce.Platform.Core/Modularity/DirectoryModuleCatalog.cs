@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -18,7 +18,7 @@ namespace VirtoCommerce.Platform.Core.Modularity
     /// <see cref="IModule"/> and add them to the catalog based on contents in their associated <see cref="ModuleAttribute"/>.
     /// Assemblies are loaded into a new application domain with ReflectionOnlyLoad.  The application domain is destroyed
     /// once the assemblies have been discovered.
-    /// 
+    ///
     /// The directory catalog does not continue to monitor the directory after it has created the initial catalog.
     /// </remarks>
     public class DirectoryModuleCatalog : ModuleCatalog
@@ -49,7 +49,7 @@ namespace VirtoCommerce.Platform.Core.Modularity
                 var assemblies = (
                                      from Assembly assembly in AppDomain.CurrentDomain.GetAssemblies()
                                      where !(assembly is System.Reflection.Emit.AssemblyBuilder)
-										&& assembly.GetType().FullName != "System.Reflection.Emit.InternalAssemblyBuilder"
+                                        && assembly.GetType().FullName != "System.Reflection.Emit.InternalAssemblyBuilder"
                                         && !String.IsNullOrEmpty(assembly.Location)
                                      select assembly.Location
                                  );
@@ -73,7 +73,6 @@ namespace VirtoCommerce.Platform.Core.Modularity
             }
         }
 
-
         /// <summary>
         /// Creates a new child domain and copies the evidence from a parent domain.
         /// </summary>
@@ -82,16 +81,17 @@ namespace VirtoCommerce.Platform.Core.Modularity
         /// <remarks>
         /// Grabs the <paramref name="parentDomain"/> evidence and uses it to construct the new
         /// <see cref="AppDomain"/> because in a ClickOnce execution environment, creating an
-        /// <see cref="AppDomain"/> will by default pick up the partial trust environment of 
-        /// the AppLaunch.exe, which was the root executable. The AppLaunch.exe does a 
-        /// create domain and applies the evidence from the ClickOnce manifests to 
-        /// create the domain that the application is actually executing in. This will 
+        /// <see cref="AppDomain"/> will by default pick up the partial trust environment of
+        /// the AppLaunch.exe, which was the root executable. The AppLaunch.exe does a
+        /// create domain and applies the evidence from the ClickOnce manifests to
+        /// create the domain that the application is actually executing in. This will
         /// need to be Full Trust for Prism applications.
         /// </remarks>
         /// <exception cref="ArgumentNullException">An <see cref="ArgumentNullException"/> is thrown if <paramref name="parentDomain"/> is null.</exception>
         protected virtual AppDomain BuildChildDomain(AppDomain parentDomain)
         {
-            if (parentDomain == null) throw new System.ArgumentNullException("parentDomain");
+            if (parentDomain == null)
+                throw new System.ArgumentNullException("parentDomain");
 
             Evidence evidence = new Evidence(parentDomain.Evidence);
             AppDomainSetup setup = parentDomain.SetupInformation;
@@ -106,7 +106,8 @@ namespace VirtoCommerce.Platform.Core.Modularity
                 DirectoryInfo directory = new DirectoryInfo(path);
 
                 ResolveEventHandler resolveEventHandler =
-                    delegate(object sender, ResolveEventArgs args) { return OnReflectionOnlyResolve(args, directory); };
+                    delegate (object sender, ResolveEventArgs args)
+                    { return OnReflectionOnlyResolve(args, directory); };
 
                 AppDomain.CurrentDomain.ReflectionOnlyAssemblyResolve += resolveEventHandler;
 
@@ -133,7 +134,7 @@ namespace VirtoCommerce.Platform.Core.Modularity
                                        assembly =>
                                        String.Compare(Path.GetFileName(assembly.Location), file.Name,
                                                       StringComparison.OrdinalIgnoreCase) == 0) == null);
-                
+
                 foreach (FileInfo fileInfo in fileInfos)
                 {
                     try
@@ -160,8 +161,6 @@ namespace VirtoCommerce.Platform.Core.Modularity
                     }
                     catch
                     {
-
-
                     }
                     return new ModuleInfo[0];
                 }).Where(x => x != null);
@@ -217,17 +216,17 @@ namespace VirtoCommerce.Platform.Core.Modularity
                         switch (argumentName)
                         {
                             case "ModuleName":
-                                moduleName = (string) argument.TypedValue.Value;
+                                moduleName = (string)argument.TypedValue.Value;
                                 break;
 
                             case "OnDemand":
-                                onDemand = (bool) argument.TypedValue.Value;
+                                onDemand = (bool)argument.TypedValue.Value;
                                 break;
 
                             case "StartupLoaded":
-                                onDemand = !((bool) argument.TypedValue.Value);
+                                onDemand = !((bool)argument.TypedValue.Value);
                                 break;
-                        }                           
+                        }
                     }
                 }
 
@@ -237,17 +236,17 @@ namespace VirtoCommerce.Platform.Core.Modularity
 
                 foreach (CustomAttributeData cad in moduleDependencyAttributes)
                 {
-                    dependsOn.Add((string) cad.ConstructorArguments[0].Value);
+                    dependsOn.Add((string)cad.ConstructorArguments[0].Value);
                 }
 
                 ModuleInfo moduleInfo = new ModuleInfo(moduleName, type.AssemblyQualifiedName)
-                                            {
-                                                InitializationMode =
+                {
+                    InitializationMode =
                                                     onDemand
                                                         ? InitializationMode.OnDemand
                                                         : InitializationMode.WhenAvailable,
-                                                Ref = type.Assembly.CodeBase,
-                                            };
+                    Ref = type.Assembly.CodeBase,
+                };
                 moduleInfo.DependsOn.AddRange(dependsOn);
                 return moduleInfo;
             }

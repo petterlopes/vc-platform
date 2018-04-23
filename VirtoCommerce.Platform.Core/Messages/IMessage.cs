@@ -1,4 +1,4 @@
-namespace VirtoCommerce.Platform.Core.Messages
+﻿namespace VirtoCommerce.Platform.Core.Messages
 {
     public interface IMessage
     { }

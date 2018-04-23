@@ -30,7 +30,6 @@ namespace VirtoCommerce.Platform.Core.Modularity
 
             Errors = new List<string>();
 
-
             Dependencies = new List<ModuleIdentity>();
             if (manifest.Dependencies != null)
             {
@@ -62,7 +61,7 @@ namespace VirtoCommerce.Platform.Core.Modularity
                 Groups.AddRange(manifest.Groups);
             }
             Incompatibilities = new List<ModuleIdentity>();
-            if(manifest.Incompatibilities != null)
+            if (manifest.Incompatibilities != null)
             {
                 Incompatibilities.AddRange(manifest.Incompatibilities.Select(x => new ModuleIdentity(x.Id, x.Version)));
             }
@@ -87,10 +86,12 @@ namespace VirtoCommerce.Platform.Core.Modularity
         public string Copyright { get; private set; }
         public string Tags { get; private set; }
         public ICollection<ModuleIdentity> Dependencies { get; private set; }
+
         /// <summary>
         /// List of incompatible modules
         /// </summary>
         public ICollection<ModuleIdentity> Incompatibilities { get; private set; }
+
         public bool IsRemovable { get; set; }
         public bool IsInstalled { get; set; }
         public ICollection<string> Groups { get; private set; }

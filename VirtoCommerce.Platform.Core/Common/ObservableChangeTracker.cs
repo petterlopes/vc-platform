@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace VirtoCommerce.Platform.Core.Common
 {
@@ -14,7 +12,6 @@ namespace VirtoCommerce.Platform.Core.Common
         public Action<object> RemoveAction { get; set; }
         public Action<object> AddAction { get; set; }
 
-     
         public void Attach(object item)
         {
             if (item == null)
@@ -53,9 +50,7 @@ namespace VirtoCommerce.Platform.Core.Common
 
         public void Dispose()
         {
-          
         }
-
 
         private static INotifyCollectionChanged[] GetCollectionsRecursive(object obj)
         {
@@ -78,8 +73,6 @@ namespace VirtoCommerce.Platform.Core.Common
 
             retVal.AddRange(collections);
             return retVal.ToArray();
-
-
         }
     }
 }

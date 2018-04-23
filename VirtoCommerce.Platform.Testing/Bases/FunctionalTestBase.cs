@@ -6,7 +6,6 @@ using VirtoCommerce.Platform.Core.Common;
 
 namespace VirtoCommerce.Platform.Testing.Bases
 {
-
     public abstract class FunctionalTestBase : TestBase, IDisposable
     {
         private readonly string _connectionStringFormat = "Server=(local);Database={0};Trusted_Connection=True";
@@ -44,7 +43,6 @@ namespace VirtoCommerce.Platform.Testing.Bases
             return (TRepository)Activator.CreateInstance(typeof(TRepository), DatabaseConnectionString);
         }
         */
-
 
         /// <summary>
         /// Ensures the database for the context is created and seeded.  This is typically used
@@ -106,6 +104,6 @@ namespace VirtoCommerce.Platform.Testing.Bases
             AppDomain.CurrentDomain.SetData("DataDirectory", _previousDataDirectory);
         }
 
-        #endregion
+        #endregion Implementation of IDisposable
     }
 }

@@ -17,7 +17,7 @@ namespace VirtoCommerce.Platform.Data.Settings
 {
     /// <summary>
     /// Provide next functionality to working with settings
-    /// - Load setting metainformation from module manifest and database 
+    /// - Load setting metainformation from module manifest and database
     /// - Deep load all settings for entity
     /// - Mass update all entity settings
     /// </summary>
@@ -338,7 +338,7 @@ namespace VirtoCommerce.Platform.Data.Settings
             SaveSettings(new[] { setting });
         }
 
-        #endregion
+        #endregion ISettingsManager Members
 
         private void ClearCache(SettingEntry[] settings)
         {

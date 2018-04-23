@@ -38,6 +38,7 @@ namespace VirtoCommerce.Platform.Data.Repositories
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
             #region Assets
+
             modelBuilder.Entity<AssetEntryEntity>().ToTable("AssetEntry").HasKey(x => x.Id).Property(x => x.Id);
 
             modelBuilder.Entity<AssetEntryEntity>()
@@ -46,13 +47,16 @@ namespace VirtoCommerce.Platform.Data.Repositories
             modelBuilder.Entity<AssetEntryEntity>()
                 .Property(x => x.TenantType)
                 .HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("IX_AssetEntry_TenantId_TenantType", 2) { IsUnique = false }));
-            #endregion
+
+            #endregion Assets
 
             #region Change logging
+
             modelBuilder.Entity<OperationLogEntity>().HasKey(x => x.Id)
                         .Property(x => x.Id);
             modelBuilder.Entity<OperationLogEntity>().ToTable("PlatformOperationLog");
-            #endregion
+
+            #endregion Change logging
 
             #region Settings
 
@@ -64,7 +68,7 @@ namespace VirtoCommerce.Platform.Data.Repositories
                 .WithMany(x => x.SettingValues)
                 .HasForeignKey(x => x.SettingId);
 
-            #endregion
+            #endregion Settings
 
             #region Dynamic Properties
 
@@ -132,7 +136,7 @@ namespace VirtoCommerce.Platform.Data.Repositories
                 .Property(x => x.Name)
                 .HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("IX_PlatformDynamicPropertyDictionaryItemName_DictionaryItemId_Locale_Name", 3) { IsUnique = true }));
 
-            #endregion
+            #endregion Dynamic Properties
 
             #region Security
 
@@ -171,12 +175,12 @@ namespace VirtoCommerce.Platform.Data.Repositories
                 .WithMany(x => x.RolePermissions)
                 .HasForeignKey(x => x.RoleId).WillCascadeOnDelete(true);
 
-
             modelBuilder.Entity<PermissionScopeEntity>()
                 .HasRequired(x => x.RolePermission)
                 .WithMany(x => x.Scopes)
                 .HasForeignKey(x => x.RolePermissionId).WillCascadeOnDelete(true);
-            #endregion
+
+            #endregion Security
 
             #region Notifications
 
@@ -195,7 +199,7 @@ namespace VirtoCommerce.Platform.Data.Repositories
                 .Property(x => x.Language)
                 .HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("IX_PlatformNotificationTemplate_NotificationTypeId_ObjectTypeId_ObjectId_Language", 4) { IsUnique = true }));
 
-            #endregion
+            #endregion Notifications
 
             base.OnModelCreating(modelBuilder);
         }
@@ -219,7 +223,6 @@ namespace VirtoCommerce.Platform.Data.Repositories
         public IQueryable<RolePermissionEntity> RolePermissions { get { return GetAsQueryable<RolePermissionEntity>(); } }
         public IQueryable<OperationLogEntity> OperationLogs { get { return GetAsQueryable<OperationLogEntity>(); } }
         public IQueryable<AssetEntryEntity> AssetEntries => GetAsQueryable<AssetEntryEntity>();
-
 
         public AssetEntryEntity[] GetAssetsByIds(IEnumerable<string> ids)
         {
@@ -256,7 +259,6 @@ namespace VirtoCommerce.Platform.Data.Repositories
 
             return retVal;
         }
-
 
         public DynamicPropertyEntity[] GetObjectDynamicProperties(string[] objectTypeNames, string[] objectIds)
         {
@@ -302,7 +304,7 @@ namespace VirtoCommerce.Platform.Data.Repositories
             return result;
         }
 
-        #endregion
+        #endregion IPlatformRepository Members
 
         public NotificationTemplateEntity GetNotificationTemplateByNotification(string notificationTypeId, string objectId, string objectTypeId, string language)
         {

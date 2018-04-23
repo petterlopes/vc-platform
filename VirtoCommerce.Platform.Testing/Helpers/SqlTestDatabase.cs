@@ -32,7 +32,7 @@ namespace VirtoCommerce.Platform.Testing.Helpers
 
         public override InfoContext Info => base.Info ?? (base.Info = CreateInfoContext(new SqlConnection(ConnectionString)));
 
-        #endregion
+        #endregion Overrides of TestDatabase
 
         /*
         public override void EnsureDatabase()
@@ -61,12 +61,12 @@ namespace VirtoCommerce.Platform.Testing.Helpers
         {
             ExecuteNonQuery(
                 @"DECLARE @sql NVARCHAR(1024);
-                  
+
                   DECLARE history_cursor CURSOR FOR
                   SELECT 'DROP TABLE ' + SCHEMA_NAME(schema_id) + '.' + object_name(object_id) + ';'
                   FROM sys.objects
                   WHERE name = '__MigrationHistory'
-                  
+
                   OPEN history_cursor;
                   FETCH NEXT FROM history_cursor INTO @sql;
                   WHILE @@FETCH_STATUS = 0
@@ -76,23 +76,23 @@ namespace VirtoCommerce.Platform.Testing.Helpers
                   END
                   CLOSE history_cursor;
                   DEALLOCATE history_cursor;
- 
+
                   DECLARE @constraint_name NVARCHAR(256),
 		                  @table_schema NVARCHAR(100),
 		                  @table_name NVARCHAR(100);
-                 
+
                   DECLARE constraint_cursor CURSOR FOR
                   SELECT constraint_name, table_schema, table_name
-                  FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS 
+                  FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
                   WHERE constraint_catalog = 'MigrationsTest'
                   AND constraint_type = 'FOREIGN KEY'
-                 
+
                   OPEN constraint_cursor;
                   FETCH NEXT FROM constraint_cursor INTO @constraint_name, @table_schema, @table_name;
                   WHILE @@FETCH_STATUS = 0
                   BEGIN
                       SELECT @sql = 'ALTER TABLE [' + @table_schema + '].[' + @table_name + '] DROP CONSTRAINT [' + @constraint_name + ']';
-                      EXEC sp_executesql @sql; 
+                      EXEC sp_executesql @sql;
                       FETCH NEXT FROM constraint_cursor INTO @constraint_name, @table_schema, @table_name;
                   END
                   CLOSE constraint_cursor;

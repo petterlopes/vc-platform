@@ -13,8 +13,8 @@ using StackRedis = StackExchange.Redis;
 namespace VirtoCommerce.Platform.Web.Cache
 {
     /// <summary>
-    /// We were forced to copy this code because this class marked as sealed, however we need to disable raising Changed event 
-    /// to prevent eviction from cache already exist values 
+    /// We were forced to copy this code because this class marked as sealed, however we need to disable raising Changed event
+    /// to prevent eviction from cache already exist values
     /// </summary>
     public sealed class RedisCacheBackplane2 : CacheBackplane
     {

@@ -194,7 +194,7 @@ namespace VirtoCommerce.Platform.Web.Controllers.Api
         }
 
         /// <summary>
-        /// Install modules 
+        /// Install modules
         /// </summary>
         /// <param name="modules">modules for install</param>
         /// <returns></returns>
@@ -267,7 +267,6 @@ namespace VirtoCommerce.Platform.Web.Controllers.Api
                 //set completed by default
                 Finished = DateTime.UtcNow
             };
-
 
             if (!_settingsManager.GetValue("VirtoCommerce.ModulesAutoInstalled", false))
             {
@@ -366,6 +365,7 @@ namespace VirtoCommerce.Platform.Web.Controllers.Api
                     case webModel.ModuleAction.Install:
                         _moduleInstaller.Install(moduleInfos, reportProgress);
                         break;
+
                     case webModel.ModuleAction.Uninstall:
                         _moduleInstaller.Uninstall(moduleInfos, reportProgress);
                         break;
@@ -426,6 +426,7 @@ namespace VirtoCommerce.Platform.Web.Controllers.Api
                     notification.Title = "Install Module";
                     notification.ProgressLog.Add(new webModel.ProgressMessage { Level = ProgressMessageLevel.Info.ToString(), Message = "Starting installation..." });
                     break;
+
                 case webModel.ModuleAction.Uninstall:
                     notification.Title = "Uninstall Module";
                     notification.ProgressLog.Add(new webModel.ProgressMessage { Level = ProgressMessageLevel.Info.ToString(), Message = "Starting uninstall..." });

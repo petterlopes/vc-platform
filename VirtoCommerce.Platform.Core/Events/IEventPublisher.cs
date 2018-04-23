@@ -13,6 +13,7 @@ namespace VirtoCommerce.Platform.Core.Events
         /// <param name="eventMessage">Event message</param>
         void Publish(T eventMessage);
     }
+
     public interface IEventPublisher
     {
         Task Publish<T>(T @event, CancellationToken cancellationToken = default(CancellationToken)) where T : class, IEvent;

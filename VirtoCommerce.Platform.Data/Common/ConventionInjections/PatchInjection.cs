@@ -14,10 +14,12 @@ namespace VirtoCommerce.Platform.Data.Common.ConventionInjections
     {
         private bool _injectNullValue = false;
         private List<string> _propertyNames = new List<string>();
+
         public PatchInjection(params Expression<Func<T, object>>[] propertyNames)
-            :this(injectNullValues: false , propertyNames: propertyNames)
+            : this(injectNullValues: false, propertyNames: propertyNames)
         {
         }
+
         public PatchInjection(bool injectNullValues = false, params Expression<Func<T, object>>[] propertyNames)
         {
             _injectNullValue = injectNullValues;

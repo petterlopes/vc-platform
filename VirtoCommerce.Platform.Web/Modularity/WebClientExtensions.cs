@@ -31,7 +31,7 @@ namespace VirtoCommerce.Platform.Web.Modularity
         {
             //https://github.com/octokit/octokit.net/pull/1758
             // On February 22, 2018 19:00 UTC, GitHub will disable permanently the use of weak cryptogrpahic standards.
-            //Applications targeting .NET Framework 4.5.x will be affected, as that framework does not enable the now required protocol (TLS1.2) by default. 
+            //Applications targeting .NET Framework 4.5.x will be affected, as that framework does not enable the now required protocol (TLS1.2) by default.
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             if (address.Scheme == Uri.UriSchemeHttps && (address.Host == "api.github.com" || address.Host == "raw.githubusercontent.com"))
             {

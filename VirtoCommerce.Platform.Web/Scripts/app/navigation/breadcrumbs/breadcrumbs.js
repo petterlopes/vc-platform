@@ -8,7 +8,7 @@
                 scope: {
                     bladeId: '='
                 },
-        templateUrl: '$(Platform)/Scripts/app/navigation/breadcrumbs/breadcrumbs.tpl.html',
+                templateUrl: '$(Platform)/Scripts/app/navigation/breadcrumbs/breadcrumbs.tpl.html',
                 link: function (scope, element, attr, ngModelController) {
                     scope.breadcrumbs = [];
                     ngModelController.$render = function () {
@@ -39,7 +39,7 @@
     .factory('platformWebApp.breadcrumbHistoryService', function () {
         var map = {};
 
-        function breadcrumbsEqual(x,y) {
+        function breadcrumbsEqual(x, y) {
             return x && y && x.id === y.id && x.name === y.name;
         }
 
@@ -58,8 +58,8 @@
                 if (history.ignoreNextAction) {
                     history.ignoreNextAction = false;
                 } else if (history.currentBreadcrumb &&
-                            !breadcrumbsEqual(history.currentBreadcrumb, currentBreadcrumb) &&
-                            !breadcrumbsEqual(history.currentBreadcrumb, _.last(history.records))) {
+                    !breadcrumbsEqual(history.currentBreadcrumb, currentBreadcrumb) &&
+                    !breadcrumbsEqual(history.currentBreadcrumb, _.last(history.records))) {
                     history.records.push(history.currentBreadcrumb);
                 }
 

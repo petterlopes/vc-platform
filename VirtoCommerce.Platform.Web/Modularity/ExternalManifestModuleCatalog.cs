@@ -23,13 +23,13 @@ namespace VirtoCommerce.Platform.Web.Modularity
             _logger = logger;
         }
 
-        #region ModuleCatalog overrides      
+        #region ModuleCatalog overrides
 
         protected override void InnerLoad()
         {
             lock (_lockObject)
             {
-                // Load remote modules 
+                // Load remote modules
                 if (!_externalManifestUrls.IsNullOrEmpty())
                 {
                     foreach (var externalManifestUrl in _externalManifestUrls)
@@ -111,8 +111,7 @@ namespace VirtoCommerce.Platform.Web.Modularity
             }
         }
 
-        #endregion
-
+        #endregion ModuleCatalog overrides
 
         private IEnumerable<ManifestModuleInfo> LoadExternalModulesManifest(string externalManifestUrl)
         {

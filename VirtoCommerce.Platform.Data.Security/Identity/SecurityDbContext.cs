@@ -1,4 +1,4 @@
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using VirtoCommerce.Platform.Core.Common;
 

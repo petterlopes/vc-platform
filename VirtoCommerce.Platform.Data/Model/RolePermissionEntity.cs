@@ -7,7 +7,7 @@ namespace VirtoCommerce.Platform.Data.Model
     {
         public RolePermissionEntity()
         {
-              Scopes = new NullCollection<PermissionScopeEntity>();
+            Scopes = new NullCollection<PermissionScopeEntity>();
         }
 
         public string RoleId { get; set; }

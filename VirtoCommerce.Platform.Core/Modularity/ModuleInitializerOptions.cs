@@ -13,6 +13,7 @@ namespace VirtoCommerce.Platform.Core.Modularity
 
         public virtual string RoutePrefix { get; set; }
         public virtual string VirtualRoot { get; set; }
+
         public virtual string GetModuleDirectoryPath(string moduleId)
         {
             return ModuleDirectories[moduleId];

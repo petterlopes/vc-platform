@@ -3,7 +3,7 @@
 namespace VirtoCommerce.Platform.Core.DynamicProperties
 {
     /// <summary>
-    /// Represent runtime object extension functionality based on properties meta-information 
+    /// Represent runtime object extension functionality based on properties meta-information
     /// </summary>
     public interface IDynamicPropertyService
     {
@@ -12,11 +12,13 @@ namespace VirtoCommerce.Platform.Core.DynamicProperties
         /// </summary>
         /// <param name="typeName"></param>
         void RegisterType(string typeName);
+
         /// <summary>
         /// Return all available types names supported dynamic properties
         /// </summary>
         /// <returns></returns>
         string[] GetAvailableObjectTypeNames();
+
         /// <summary>
         /// Return string type name
         /// </summary>
@@ -30,16 +32,20 @@ namespace VirtoCommerce.Platform.Core.DynamicProperties
         /// <param name="objectType"></param>
         /// <returns></returns>
         DynamicProperty[] GetProperties(string objectType);
+
         /// <summary>
-        /// Update or create dynamic properties 
+        /// Update or create dynamic properties
         /// </summary>
         /// <param name="properties"></param>
         /// <returns></returns>
         DynamicProperty[] SaveProperties(DynamicProperty[] properties);
+
         void DeleteProperties(string[] propertyIds);
 
         DynamicPropertyDictionaryItem[] GetDictionaryItems(string propertyId);
+
         void SaveDictionaryItems(string propertyId, DynamicPropertyDictionaryItem[] items);
+
         void DeleteDictionaryItems(string[] itemIds);
 
         /// <summary>
@@ -47,16 +53,19 @@ namespace VirtoCommerce.Platform.Core.DynamicProperties
         /// </summary>
         /// <param name="owner"></param>
         void LoadDynamicPropertyValues(IHasDynamicProperties owner);
+
         /// <summary>
         /// Deep loads and populate dynamic properties values for objects
         /// </summary>
         /// <param name="owner"></param>
         void LoadDynamicPropertyValues(params IHasDynamicProperties[] owner);
+
         /// <summary>
         /// Deep save dynamic properties values for object
         /// </summary>
         /// <param name="owner"></param>
         void SaveDynamicPropertyValues(IHasDynamicProperties owner);
+
         void DeleteDynamicPropertyValues(IHasDynamicProperties owner);
     }
 }

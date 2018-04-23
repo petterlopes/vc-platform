@@ -1,4 +1,4 @@
-namespace VirtoCommerce.Platform.Core.Modularity
+﻿namespace VirtoCommerce.Platform.Core.Modularity
 {
     /// <summary>
     /// Specifies on which stage the Module group will be initialized.

@@ -9,6 +9,7 @@ namespace VirtoCommerce.Platform.Data.Security.Authentication
     {
         public IClaimsIdentityProvider IdentityProvider { get; set; }
         public IApiAccountProvider ApiCredentialsProvider { get; set; }
+
         [CLSCompliant(false)]
         public ICacheManager<object> CacheManager { get; set; }
 

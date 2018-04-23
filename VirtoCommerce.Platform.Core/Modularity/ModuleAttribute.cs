@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace VirtoCommerce.Platform.Core.Modularity
 {
@@ -16,9 +16,9 @@ namespace VirtoCommerce.Platform.Core.Modularity
         public string ModuleName { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether the module should be loaded at startup. 
+        /// Gets or sets a value indicating whether the module should be loaded at startup.
         /// </summary>
-        /// When <see langword="true"/> (default value), it indicates that this module should be loaded at startup. 
+        /// When <see langword="true"/> (default value), it indicates that this module should be loaded at startup.
         /// Otherwise you should explicitly load this module on demand.
         /// <value>A <see cref="bool"/> value.</value>
         [Obsolete("StartupLoaded has been replaced by the OnDemand property.")]
@@ -27,7 +27,6 @@ namespace VirtoCommerce.Platform.Core.Modularity
             get { return !OnDemand; }
             set { OnDemand = !value; }
         }
-
 
         /// <summary>
         /// Gets or sets the value indicating whether the module should be loaded OnDemand.

@@ -1,8 +1,7 @@
-namespace VirtoCommerce.Platform.Data.Repositories.Migrations
+﻿namespace VirtoCommerce.Platform.Data.Repositories.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class AccountEntityEnumPropChanges : DbMigration
     {
         public override void Up()
@@ -17,7 +16,7 @@ namespace VirtoCommerce.Platform.Data.Repositories.Migrations
             Sql("UPDATE PlatformAccount SET PlatformAccount.IsAdministrator = 1 WHERE RegisterType = 2");
             DropColumn("dbo.PlatformAccount", "RegisterType");
         }
-        
+
         public override void Down()
         {
             AddColumn("dbo.PlatformAccount", "RegisterType", c => c.Int(nullable: false));

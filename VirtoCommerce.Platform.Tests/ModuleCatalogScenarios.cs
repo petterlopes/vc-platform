@@ -1,10 +1,10 @@
-﻿using Common.Logging.Simple;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
+using Common.Logging.Simple;
 using VirtoCommerce.Platform.Core.Modularity;
 using VirtoCommerce.Platform.Core.Packaging;
 using VirtoCommerce.Platform.Testing.Bases;
@@ -52,7 +52,7 @@ namespace VirtoCommerce.Platform.Tests
             var modules = catalogInternal.Modules.OfType<ManifestModuleInfo>().ToArray();
 
             // when local dependency defined, use that to create catalog
-            if(!string.IsNullOrEmpty(_CatalogDependencySourceFolder))
+            if (!string.IsNullOrEmpty(_CatalogDependencySourceFolder))
             {
                 catalogInternal = GetModuleCatalog(_CatalogDependencySourceFolder);
                 if (modules != null)
@@ -89,7 +89,7 @@ namespace VirtoCommerce.Platform.Tests
 
             // validate installed modules, if it doesn't equal then modules were not installed
             Assert.Equal(
-                modules.Union(modulesWithDependencies).Count(), 
+                modules.Union(modulesWithDependencies).Count(),
                 modules.Union(modulesWithDependencies).OfType<ManifestModuleInfo>().Where(x => x.IsInstalled).Count()
             );
 
@@ -123,7 +123,7 @@ namespace VirtoCommerce.Platform.Tests
             return externalModuleCatalog;
         }
 
-        void ListModules(IModuleCatalog service)
+        private void ListModules(IModuleCatalog service)
         {
             var modules = service.Modules.OfType<ManifestModuleInfo>().ToArray();
             Debug.WriteLine("Modules count: {0}", modules.Length);
@@ -168,12 +168,12 @@ namespace VirtoCommerce.Platform.Tests
             return null;
         }
 
-        void WriteModuleLine(ManifestModuleInfo module)
+        private void WriteModuleLine(ManifestModuleInfo module)
         {
             _output.WriteLine("{0} {1} {2}", module.IsInstalled ? "INSTALLED" : "", module.Id, module.Version);
         }
 
-        void WriteProgressMessage(ProgressMessage message)
+        private void WriteProgressMessage(ProgressMessage message)
         {
             _output.WriteLine("{0}: {1}", message.Level, message.Message);
         }

@@ -59,7 +59,6 @@ namespace VirtoCommerce.Platform.Web
 
             // Standard WebHostHttpControllerTypeResolver uses cache and does not see new modules.
             GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerTypeResolver), new DefaultHttpControllerTypeResolver());
-
         }
 
         public class CustomAssemblyResolver : DefaultAssembliesResolver
@@ -89,8 +88,7 @@ namespace VirtoCommerce.Platform.Web
                 return assemblies;
             }
 
-
-            static void AddAssemblyWithReferencesRecursive(Assembly assembly, List<Assembly> assemblies)
+            private static void AddAssemblyWithReferencesRecursive(Assembly assembly, List<Assembly> assemblies)
             {
                 if (!assemblies.Contains(assembly))
                 {
@@ -109,7 +107,7 @@ namespace VirtoCommerce.Platform.Web
                 }
             }
 
-            static Assembly LoadAssembly(AssemblyName name)
+            private static Assembly LoadAssembly(AssemblyName name)
             {
                 Assembly result = null;
 

@@ -36,7 +36,6 @@ namespace VirtoCommerce.Platform.Data.Security.Authentication.Hmac
             }
         }
 
-
         private static string BuildDataString(NameValuePair[] parameters)
         {
             if (parameters == null)

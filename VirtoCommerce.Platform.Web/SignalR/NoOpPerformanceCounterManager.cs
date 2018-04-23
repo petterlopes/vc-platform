@@ -37,6 +37,7 @@ namespace VirtoCommerce.Platform.Web.SignalR
                 .Where(p => p.PropertyType == typeof(IPerformanceCounter))
                 .ToArray();
         }
+
         public IPerformanceCounter ConnectionsConnected { get; set; }
         public IPerformanceCounter ConnectionsReconnected { get; set; }
         public IPerformanceCounter ConnectionsDisconnected { get; set; }

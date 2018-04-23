@@ -36,7 +36,6 @@
 //    [TestClass]
 //    public class DynamicPropertyTests
 //    {
-
 //        [TestMethod]
 //        public void IterativeSavingObjectsWithproperties_PropertiesSholdSaved()
 //        {
@@ -135,7 +134,6 @@
 //            Assert.IsTrue(obj.DynamicProperties.All(x => x.Values.Any()));
 
 //        }
-
 
 //        private IDynamicPropertyService GetDynamicPropertyService()
 //        {

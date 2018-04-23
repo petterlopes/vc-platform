@@ -88,7 +88,6 @@ namespace VirtoCommerce.Platform.Data.DynamicProperties
                         {
                             repository.Add(source);
                         }
-
                     });
                 repository.UnitOfWork.Commit();
 
@@ -118,7 +117,6 @@ namespace VirtoCommerce.Platform.Data.DynamicProperties
                 repository.UnitOfWork.Commit();
             }
         }
-
 
         public DynamicPropertyDictionaryItem[] GetDictionaryItems(string propertyId)
         {
@@ -158,7 +156,6 @@ namespace VirtoCommerce.Platform.Data.DynamicProperties
                     {
                         repository.Add(source);
                     }
-
                 });
                 repository.UnitOfWork.Commit();
             }
@@ -191,12 +188,12 @@ namespace VirtoCommerce.Platform.Data.DynamicProperties
 
         public void LoadDynamicPropertyValues(params IHasDynamicProperties[] owners)
         {
-            if(owners == null)
+            if (owners == null)
             {
                 throw new ArgumentNullException("owners");
             }
 
-            var propOwners = owners.SelectMany(x=> x.GetFlatObjectsListWithInterface<IHasDynamicProperties>());
+            var propOwners = owners.SelectMany(x => x.GetFlatObjectsListWithInterface<IHasDynamicProperties>());
             using (var repository = _repositoryFactory())
             {
                 var objectTypeNames = propOwners.Select(x => GetObjectTypeName(x)).Distinct().ToArray();
@@ -211,7 +208,7 @@ namespace VirtoCommerce.Platform.Data.DynamicProperties
                 }
             }
         }
-     
+
         public void SaveDynamicPropertyValues(IHasDynamicProperties owner)
         {
             if (owner == null)
@@ -302,13 +299,11 @@ namespace VirtoCommerce.Platform.Data.DynamicProperties
             }
         }
 
-        #endregion
+        #endregion IDynamicPropertyService Members
 
         private string GetObjectTypeName(object obj)
         {
             return GetObjectTypeName(obj.GetType());
         }
-
-
     }
 }

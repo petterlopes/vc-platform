@@ -19,10 +19,12 @@ namespace VirtoCommerce.Platform.Data.Model
 
         public string Sender { get; set; }
         public string Recipient { get; set; }
+
         /// <summary>
         /// Subject of notification
         /// </summary>
         public string Subject { get; set; }
+
         /// <summary>
         /// Body of notification
         /// </summary>

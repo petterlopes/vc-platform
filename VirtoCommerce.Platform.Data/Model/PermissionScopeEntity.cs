@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 using VirtoCommerce.Platform.Core.Common;
 
 namespace VirtoCommerce.Platform.Data.Model
@@ -21,8 +16,10 @@ namespace VirtoCommerce.Platform.Data.Model
         public string Label { get; set; }
 
         #region Navigation properties
+
         public string RolePermissionId { get; set; }
-        public RolePermissionEntity RolePermission { get; set; } 
-        #endregion
+        public RolePermissionEntity RolePermission { get; set; }
+
+        #endregion Navigation properties
     }
 }

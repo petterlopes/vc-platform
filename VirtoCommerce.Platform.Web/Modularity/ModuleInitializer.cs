@@ -1,12 +1,10 @@
-using System;
+﻿using System;
 using System.Globalization;
 using Common.Logging;
 using Microsoft.Practices.ServiceLocation;
 using VirtoCommerce.Platform.Core.Common;
 using VirtoCommerce.Platform.Core.Modularity;
 using VirtoCommerce.Platform.Core.Modularity.Exceptions;
-using VirtoCommerce.Platform.Core.PushNotifications;
-using VirtoCommerce.Platform.Web.Model.Modularity;
 using VirtoCommerce.Platform.Web.Resources;
 
 namespace VirtoCommerce.Platform.Web.Modularity
@@ -96,7 +94,7 @@ namespace VirtoCommerce.Platform.Web.Modularity
         /// <summary>
         /// Handles any exception occurred in the module Initialization process,
         /// logs the error using the <see cref="ILog"/> and throws a <see cref="ModuleInitializeException"/>.
-        /// This method can be overridden to provide a different behavior. 
+        /// This method can be overridden to provide a different behavior.
         /// </summary>
         /// <param name="moduleInfo">The module metadata where the error happenened.</param>
         /// <param name="exception">The exception thrown that is the cause of the current error.</param>
@@ -127,7 +125,7 @@ namespace VirtoCommerce.Platform.Web.Modularity
                 }
             }
             var manifestModule = moduleInfo as ManifestModuleInfo;
-            if(manifestModule != null)
+            if (manifestModule != null)
             {
                 manifestModule.Errors.Add(exception.ToString());
             }

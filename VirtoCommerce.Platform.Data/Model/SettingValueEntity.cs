@@ -31,13 +31,11 @@ namespace VirtoCommerce.Platform.Data.Model
 
         public DateTime? DateTimeValue { get; set; }
 
-
         [StringLength(64)]
         public string Locale { get; set; }
 
         public string SettingId { get; set; }
         public virtual SettingEntity Setting { get; set; }
-
 
         public virtual SettingValueEntity FromString(string value, SettingValueType valueType)
         {
@@ -78,25 +76,30 @@ namespace VirtoCommerce.Platform.Data.Model
             return this;
         }
 
-
         public object RawValue()
         {
             switch (ValueType)
             {
                 case TypeBoolean:
                     return BooleanValue;
+
                 case TypeDateTime:
                     return DateTimeValue;
+
                 case TypeDecimal:
                     return DecimalValue;
+
                 case TypeInteger:
                     return IntegerValue;
+
                 case TypeLongText:
                 case TypeJson:
                     return LongTextValue;
+
                 case TypeShortText:
                 case TypeSecureString:
                     return ShortTextValue;
+
                 default:
                     return null;
             }
@@ -108,18 +111,24 @@ namespace VirtoCommerce.Platform.Data.Model
             {
                 case TypeBoolean:
                     return BooleanValue.ToString();
+
                 case TypeDateTime:
                     return DateTimeValue == null ? null : DateTimeValue.Value.ToString(formatProvider);
+
                 case TypeDecimal:
                     return DecimalValue.ToString(formatProvider);
+
                 case TypeInteger:
                     return IntegerValue.ToString(formatProvider);
+
                 case TypeLongText:
                 case TypeJson:
                     return LongTextValue;
+
                 case TypeShortText:
                 case TypeSecureString:
                     return ShortTextValue;
+
                 default:
                     return base.ToString();
             }

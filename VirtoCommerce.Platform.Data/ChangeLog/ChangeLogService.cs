@@ -108,14 +108,12 @@ namespace VirtoCommerce.Platform.Data.ChangeLog
                 {
                     retVal = entity.ToCoreModel();
                 }
-
             }
             return retVal;
         }
 
         public IEnumerable<OperationLog> FindChangeHistory(string objectType, DateTime? startDate, DateTime? endDate)
         {
-
             if (objectType == null)
                 throw new ArgumentNullException(nameof(objectType));
 
@@ -130,6 +128,6 @@ namespace VirtoCommerce.Platform.Data.ChangeLog
             }
         }
 
-        #endregion
+        #endregion IChangeLogService Members
     }
 }

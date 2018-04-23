@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using VirtoCommerce.Platform.Core.Common;
 using VirtoCommerce.Platform.Core.Notifications;
 using VirtoCommerce.Platform.Data.Infrastructure;
@@ -14,6 +12,7 @@ namespace VirtoCommerce.Platform.Data.Notifications
     public class NotificationTemplateServiceImpl : ServiceBase, INotificationTemplateService
     {
         private readonly Func<IPlatformRepository> _repositoryFactory;
+
         public NotificationTemplateServiceImpl(Func<IPlatformRepository> repositoryFactory)
         {
             _repositoryFactory = repositoryFactory;

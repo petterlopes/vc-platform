@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
@@ -28,13 +28,11 @@ namespace VirtoCommerce.Platform.Data.Notifications
             return Task.Run(() => SendNotificationAsync(notification)).Result;
         }
 
-
         public bool ValidateNotification(Notification notification)
         {
             var retVal = ValidateNotificationRecipient(notification.Recipient);
             return retVal;
         }
-
 
         private async Task<SendNotificationResult> SendNotificationAsync(Notification notification)
         {
@@ -65,7 +63,6 @@ namespace VirtoCommerce.Platform.Data.Notifications
             }
             return retVal;
         }
-
 
         private static bool ValidateNotificationRecipient(string recipient)
         {

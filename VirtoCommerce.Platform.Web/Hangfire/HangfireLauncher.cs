@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Hangfire;
 using Hangfire.MemoryStorage;
 using Hangfire.SqlServer;
@@ -60,7 +60,7 @@ namespace VirtoCommerce.Platform.Web.Hangfire
 
                     // Create some queues for job prioritization.
                     // Normal equals 'default', because Hangfire depends on it.
-                    Queues = new[] {JobPriority.High, JobPriority.Normal, JobPriority.Low}
+                    Queues = new[] { JobPriority.High, JobPriority.Normal, JobPriority.Low }
                 };
 
                 // Allow tweaking worker thread count.
@@ -70,7 +70,6 @@ namespace VirtoCommerce.Platform.Web.Hangfire
                 app.UseHangfireServer(serverOptions);
             }
         }
-
 
         private JobStorage CreateJobStorage(Stage stage)
         {

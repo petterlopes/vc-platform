@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Globalization;
 using Common.Logging;
 using Microsoft.Practices.ServiceLocation;
@@ -27,7 +27,6 @@ namespace VirtoCommerce.Platform.Web.Modularity
         /// <value>The default <see cref="IUnityContainer"/> instance.</value>
         [CLSCompliant(false)]
         public IUnityContainer Container { get; protected set; }
-
 
         /// <summary>
         /// Run the bootstrapper process.
@@ -67,7 +66,6 @@ namespace VirtoCommerce.Platform.Web.Modularity
 
             this.Logger.Debug(ModularityResources.ConfiguringServiceLocatorSingleton);
             this.ConfigureServiceLocator();
-
 
             this.Logger.Debug(ModularityResources.RegisteringFrameworkExceptionTypes);
             this.RegisterFrameworkExceptionTypes();

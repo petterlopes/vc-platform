@@ -1,8 +1,7 @@
-namespace VirtoCommerce.Platform.Data.Repositories.Migrations
+﻿namespace VirtoCommerce.Platform.Data.Repositories.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class NotificationAddLanguagesAndObjectType : DbMigration
     {
         public override void Up()
@@ -14,7 +13,7 @@ namespace VirtoCommerce.Platform.Data.Repositories.Migrations
             AddColumn("dbo.PlatformNotificationTemplate", "Language", c => c.String(maxLength: 10));
             AddColumn("dbo.PlatformNotificationTemplate", "IsDefault", c => c.Boolean(nullable: false));
         }
-        
+
         public override void Down()
         {
             DropColumn("dbo.PlatformNotificationTemplate", "IsDefault");

@@ -21,7 +21,6 @@ namespace VirtoCommerce.Platform.Data.Security.Authentication.ApiKeys
             return userId;
         }
 
-
         private string ExtractAppIdFromRequest()
         {
             // Check the Authorization header

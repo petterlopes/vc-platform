@@ -33,6 +33,7 @@ namespace VirtoCommerce.Platform.Data.Azure
         }
 
         #region IBlobStorageProvider Members
+
         /// <summary>
         /// Get blog info by url
         /// </summary>
@@ -103,13 +104,12 @@ namespace VirtoCommerce.Platform.Data.Azure
             blob.Properties.ContentType = MimeTypeResolver.ResolveContentType(Path.GetFileName(filePath));
 
             // Leverage Browser Caching - 7days
-            // Setting Cache-Control on Azure Blobs can help reduce bandwidth and improve the performance by preventing consumers from having to continuously download resources. 
+            // Setting Cache-Control on Azure Blobs can help reduce bandwidth and improve the performance by preventing consumers from having to continuously download resources.
             // More Info https://developers.google.com/speed/docs/insights/LeverageBrowserCaching
             blob.Properties.CacheControl = "public, max-age=604800";
 
             return blob.OpenWrite();
         }
-
 
         public virtual void Remove(string[] urls)
         {
@@ -139,7 +139,6 @@ namespace VirtoCommerce.Platform.Data.Azure
                 }
             }
         }
-
 
         public virtual BlobSearchResult Search(string folderUrl, string keyword)
         {
@@ -298,13 +297,13 @@ namespace VirtoCommerce.Platform.Data.Azure
                 if (await sourse.ExistsAsync())
                 {
                     await target.StartCopyAsync(sourse);
-                    if(!isCopy)
+                    if (!isCopy)
                         await sourse.DeleteIfExistsAsync();
                 }
             }
         }
 
-        #endregion
+        #endregion IBlobStorageProvider Members
 
         #region IBlobUrlResolver Members
 
@@ -326,7 +325,8 @@ namespace VirtoCommerce.Platform.Data.Azure
             return retVal;
         }
 
-        #endregion
+        #endregion IBlobUrlResolver Members
+
         /// <summary>
         /// Return outline folder from absolute or relative url
         /// </summary>
@@ -352,6 +352,7 @@ namespace VirtoCommerce.Platform.Data.Azure
             var retVal = string.Join(_cloudBlobClient.DefaultDelimiter, GetOutlineFromUrl(url).Skip(1).ToArray());
             return !string.IsNullOrEmpty(retVal) ? retVal + _cloudBlobClient.DefaultDelimiter : null;
         }
+
         private string GetFilePathFromUrl(string url)
         {
             var retVal = string.Join(_cloudBlobClient.DefaultDelimiter, GetOutlineFromUrl(url).Skip(1).ToArray());
@@ -379,6 +380,5 @@ namespace VirtoCommerce.Platform.Data.Azure
             }
             return cloudStorageAccount;
         }
-
     }
 }

@@ -58,7 +58,6 @@ namespace VirtoCommerce.Platform.Web.PushNotifications
                 }
             }
             _hubSignalR.Clients.All.notification(notify);
-
         }
 
         public core.PushNotificationSearchResult SearchNotifies(string userId, core.PushNotificationSearchCriteria criteria)
@@ -108,6 +107,6 @@ namespace VirtoCommerce.Platform.Web.PushNotifications
             return retVal;
         }
 
-        #endregion
+        #endregion INotifier Members
     }
 }

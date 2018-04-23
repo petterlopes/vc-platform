@@ -6,7 +6,9 @@ namespace VirtoCommerce.Platform.Data.Security
     public interface IApiAccountProvider
     {
         ApiAccountEntity GetAccountByAppId(ApiAccountType type, string appId);
+
         ApiAccountEntity GenerateApiCredentials(ApiAccountType type);
+
         ApiAccountEntity GenerateApiKey(ApiAccountEntity account);
     }
 }

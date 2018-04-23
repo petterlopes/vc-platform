@@ -2,8 +2,6 @@
  * @description user has to jsut mention the percent, on completion of that percentage scroll; expression will be fired
  * for example <div id="fixed" when-scrolled="loadMore()" percent="70">*/
 
-
-
 angular.module('platformWebApp')
     .directive('whenScrolled', function () {
         return function (scope, elm, attr) {
@@ -31,4 +29,3 @@ angular.module('platformWebApp')
             });
         };
     });
-

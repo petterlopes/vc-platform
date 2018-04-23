@@ -33,7 +33,6 @@
 //					DisplayName = "Registration template #1"
 //				});
 
-
 //			var manager = new NotificationManager(new LiquidNotificationTemplateResolver(), () => new RepositoryDatabaseFixture<PlatformRepository, PlatformDatabaseInitializer>().Db, service);
 
 //			Func<RegistrationEmailNotification> registrationNotification = () =>

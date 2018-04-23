@@ -4,7 +4,7 @@
     {
         public ChangedEntry(T entry, EntryState state)
             : this(entry, entry, state)
-        {           
+        {
         }
 
         public ChangedEntry(T newEntry, T oldEntry, EntryState state)

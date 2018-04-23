@@ -1,11 +1,11 @@
-using System;
+﻿using System;
 using System.Globalization;
 using VirtoCommerce.Platform.Core.Properties;
 
 namespace VirtoCommerce.Platform.Core.Modularity.Exceptions
 {
     /// <summary>
-    /// Exception thrown by <see cref="IModuleManager"/> implementations whenever 
+    /// Exception thrown by <see cref="IModuleManager"/> implementations whenever
     /// a module fails to retrieve.
     /// </summary>
     public partial class ModuleTypeLoadingException : ModularityException
@@ -28,11 +28,11 @@ namespace VirtoCommerce.Platform.Core.Modularity.Exceptions
         }
 
         /// <summary>
-        /// Initializes a new instance with a specified error message 
+        /// Initializes a new instance with a specified error message
         /// and a reference to the inner exception that is the cause of this exception.
         /// </summary>
         /// <param name="message">The error message that explains the reason for the exception.</param>
-        /// <param name="exception">The exception that is the cause of the current exception, 
+        /// <param name="exception">The exception that is the cause of the current exception,
         /// or a <see langword="null"/> reference if no inner exception is specified.</param>
         public ModuleTypeLoadingException(string message, Exception exception)
             : base(message, exception)
@@ -54,7 +54,7 @@ namespace VirtoCommerce.Platform.Core.Modularity.Exceptions
         /// </summary>
         /// <param name="moduleName">The name of the module.</param>
         /// <param name="message">The error message that explains the reason for the exception.</param>
-        /// <param name="innerException">The exception that is the cause of the current exception, 
+        /// <param name="innerException">The exception that is the cause of the current exception,
         /// or a <see langword="null"/> reference if no inner exception is specified.</param>
         public ModuleTypeLoadingException(string moduleName, string message, Exception innerException)
             : base(moduleName, String.Format(CultureInfo.CurrentCulture, Resources.FailedToRetrieveModule, moduleName, message), innerException)

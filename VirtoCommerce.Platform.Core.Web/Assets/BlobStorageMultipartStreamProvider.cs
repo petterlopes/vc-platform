@@ -12,6 +12,7 @@ namespace VirtoCommerce.Platform.Core.Web.Assets
         private readonly IBlobStorageProvider _blobProvider;
         private readonly IBlobUrlResolver _blobUrlResolver;
         private readonly string _rootPath;
+
         public BlobStorageMultipartProvider(IBlobStorageProvider blobProvider, IBlobUrlResolver blobUrlResolver, string rootPath)
         {
             _rootPath = rootPath;

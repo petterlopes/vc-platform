@@ -108,7 +108,6 @@ namespace VirtoCommerce.Platform.Web.Controllers.Api
             return Ok(await _securityService.FindByNameAsync(User.Identity.Name, UserDetails.Full));
         }
 
-       
         /// <summary>
         /// Get user details by user email
         /// </summary>
@@ -119,8 +118,8 @@ namespace VirtoCommerce.Platform.Web.Controllers.Api
         [ResponseType(typeof(ApplicationUserExtended))]
         [CheckPermission(Permission = PredefinedPermissions.SecurityQuery)]
         public async Task<IHttpActionResult> GetUserByEmail(string email)
-        { 
-            var user = await _securityService.FindByEmailAsync(email, UserDetails.Export);         
+        {
+            var user = await _securityService.FindByEmailAsync(email, UserDetails.Export);
             return Ok(user);
         }
 
@@ -137,10 +136,8 @@ namespace VirtoCommerce.Platform.Web.Controllers.Api
         public async Task<IHttpActionResult> GetUserByLogin(string loginProvider, string providerKey)
         {
             var user = await _securityService.FindByLoginAsync(loginProvider, providerKey, UserDetails.Export);
-             return Ok(user);
+            return Ok(user);
         }
-
-
 
         /// <summary>
         /// Get all registered permissions
@@ -521,7 +518,6 @@ namespace VirtoCommerce.Platform.Web.Controllers.Api
             var result = await _securityService.UnlockUserAsync(id);
             return ProcessSecurityResult(result);
         }
-
 
         private void EnsureUserIsEditable(params string[] userNames)
         {

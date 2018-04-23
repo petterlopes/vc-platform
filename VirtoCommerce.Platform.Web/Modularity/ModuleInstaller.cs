@@ -28,6 +28,7 @@ namespace VirtoCommerce.Platform.Web.Modularity
         }
 
         #region IModuleInstaller Members
+
         public void Install(IEnumerable<ManifestModuleInfo> modules, IProgress<ProgressMessage> progress)
         {
             var isValid = true;
@@ -42,7 +43,7 @@ namespace VirtoCommerce.Platform.Web.Modularity
                 }
                 var allInstalledModules = _moduleCatalog.Modules.OfType<ManifestModuleInfo>().Where(x => x.IsInstalled).ToArray();
                 //Check that incompatible modules does not installed
-                if(!module.Incompatibilities.IsNullOrEmpty())
+                if (!module.Incompatibilities.IsNullOrEmpty())
                 {
                     var installedIncompatibilities = allInstalledModules.Select(x => x.Identity).Join(module.Incompatibilities, x => x.Id, y => y.Id, (x, y) => new { x, y })
                                                           .Where(g => g.y.Version.IsCompatibleWith(g.x.Version)).Select(g => g.x)
@@ -68,7 +69,7 @@ namespace VirtoCommerce.Platform.Web.Modularity
                         isValid = false;
                     }
                 }
-                //Check that dependencies for installable modules 
+                //Check that dependencies for installable modules
                 var missedDependencies = _moduleCatalog.CompleteListWithDependencies(new[] { module }).OfType<ManifestModuleInfo>()
                                                        .Where(x => !x.IsInstalled).Except(modules);
                 if (missedDependencies.Any())
@@ -184,7 +185,8 @@ namespace VirtoCommerce.Platform.Web.Modularity
                 }
             }
         }
-        #endregion
+
+        #endregion IModuleInstaller Members
 
         private void InnerInstall(ManifestModuleInfo module, IProgress<ProgressMessage> progress)
         {
@@ -256,7 +258,7 @@ namespace VirtoCommerce.Platform.Web.Modularity
                 catch (IOException)
                 {
                     //If fail need to delete directory content first
-                    //Files                 
+                    //Files
                     foreach (var file in Directory.EnumerateFiles(directoryPath, "*.*", SearchOption.AllDirectories))
                     {
                         _txFileManager.Delete(file);
@@ -297,7 +299,5 @@ namespace VirtoCommerce.Platform.Web.Modularity
         {
             return string.Format(CultureInfo.InvariantCulture, "{0}_{1}{2}", moduleId, version, _packageFileExtension);
         }
-
-
     }
 }

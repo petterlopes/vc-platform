@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Net.Mail;
 using VirtoCommerce.Platform.Core.Notifications;
 using VirtoCommerce.Platform.Core.Settings;
@@ -37,7 +37,7 @@ namespace VirtoCommerce.Platform.Data.Notifications
                 {
                     mailMsg.To.Add(new MailAddress(email));
                 }
-               
+
                 //From email
                 mailMsg.From = new MailAddress(notification.Sender);
                 mailMsg.ReplyToList.Add(mailMsg.From);

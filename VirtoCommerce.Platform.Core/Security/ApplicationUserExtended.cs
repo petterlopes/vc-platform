@@ -6,24 +6,28 @@ using VirtoCommerce.Platform.Core.ChangeLog;
 
 namespace VirtoCommerce.Platform.Core.Security
 {
-    public class ApplicationUserExtended: IHasChangesHistory
+    public class ApplicationUserExtended : IHasChangesHistory
     {
         public string Id { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
+
         /// <summary>
         ///  True if the email is confirmed, default is false
         /// </summary>
         public bool EmailConfirmed { get; set; }
+
         /// <summary>
         /// True if the phone number is confirmed, default is false
-        /// </summary>     
+        /// </summary>
         public virtual bool PhoneNumberConfirmed { get; set; }
+
         /// <summary>
         ///   Is two factor enabled for the user
         /// </summary>
         public virtual bool TwoFactorEnabled { get; set; }
+
         /// <summary>
         /// DateTime in UTC when lockout ends, any time in the past is considered not locked out.
         /// </summary>
@@ -43,6 +47,7 @@ namespace VirtoCommerce.Platform.Core.Security
         /// Tenant id
         /// </summary>
         public string StoreId { get; set; }
+
         public string MemberId { get; set; }
         public string Icon { get; set; }
 
@@ -79,7 +84,9 @@ namespace VirtoCommerce.Platform.Core.Security
         public ApiAccount[] ApiAccounts { get; set; }
 
         #region IHasChangesHistory
+
         public ICollection<OperationLog> OperationsLog { get; set; }
-        #endregion
+
+        #endregion IHasChangesHistory
     }
 }

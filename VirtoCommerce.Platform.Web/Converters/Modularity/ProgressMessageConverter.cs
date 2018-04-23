@@ -1,5 +1,5 @@
-﻿using webModel = VirtoCommerce.Platform.Web.Model.Modularity;
-using moduleModel = VirtoCommerce.Platform.Core.Packaging;
+﻿using moduleModel = VirtoCommerce.Platform.Core.Packaging;
+using webModel = VirtoCommerce.Platform.Web.Model.Modularity;
 
 namespace VirtoCommerce.Platform.Web.Converters.Modularity
 {

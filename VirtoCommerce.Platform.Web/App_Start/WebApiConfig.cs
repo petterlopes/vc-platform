@@ -10,7 +10,6 @@ using System.Web.Http.OData.Extensions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
-using VirtoCommerce.Platform.Core.Common;
 using VirtoCommerce.Platform.Core.Security;
 using VirtoCommerce.Platform.Core.Web.Security;
 using VirtoCommerce.Platform.Web.App_Start;
@@ -64,12 +63,12 @@ namespace VirtoCommerce.Platform.Web
         /// This converter gets derived types from AbstractTypeFactory
         /// </summary>
         public class PolymorphJsonContractResolver : CamelCasePropertyNamesContractResolver
-        {        
+        {
             protected override IList<JsonProperty> CreateProperties(Type type, MemberSerialization memberSerialization)
             {
                 //Do not handle abstract types
                 if (!type.IsAbstract)
-                {               
+                {
                     var abstractTypeFactory = typeof(Core.Common.AbstractTypeFactory<>).MakeGenericType(type);
                     var pi = abstractTypeFactory.GetProperty("AllTypeInfos");
                     var values = pi.GetValue(null) as IList;
@@ -82,6 +81,5 @@ namespace VirtoCommerce.Platform.Web
                 return base.CreateProperties(type, memberSerialization);
             }
         }
-
     }
 }

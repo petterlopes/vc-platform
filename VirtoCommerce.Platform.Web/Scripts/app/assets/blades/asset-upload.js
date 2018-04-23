@@ -22,7 +22,7 @@
                 if (blade.fileUploadOptions.accept && blade.fileUploadOptions.accept.contains('image')) {
                     uploader.filters.push({
                         name: 'imageFilter',
-                        fn: function(item) {
+                        fn: function (item) {
                             var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
                             return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
                         }

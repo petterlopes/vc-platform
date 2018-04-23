@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Web;
 using CacheManager.Core;
 using CacheManager.Core.Internal;
 using CacheManager.Core.Logging;
@@ -14,7 +10,7 @@ namespace VirtoCommerce.Platform.Web.Cache
     /// <summary>
     /// This overlapping allow to Redis cache server play role of cache invalidation server (between redistributed instances with memory cache) and avoid to store real data in redistributed cache.
     ///  https://github.com/MichaCo/CacheManager/issues/111
-    /// Sample configuration 
+    /// Sample configuration
     /// <cacheManager.Redis>
     ///    <connections>
     ///        <connection id = "redisConnectionString" database="0" connectionString="redis-host:6380,password=secret,ssl=True,abortConnect=False,allowAdmin=true" />
@@ -25,13 +21,13 @@ namespace VirtoCommerce.Platform.Web.Cache
     ///        <cache name = "platformCache" enableStatistics="true" backplaneName="redisConnectionString" backplaneType="VirtoCommerce.Platform.Web.Cache.RedisCacheBackplane2, VirtoCommerce.Platform.Web">
     ///            <handle name = "memCacheHandle" ref="memCacheHandle"  expirationMode="Sliding" timeout="10m" />
     ///            <handle name = "redisConnectionString" ref="redisHandle" isBackplaneSource="true" />
-    ///        </cache>          
+    ///        </cache>
     ///    </managers>
     ///    <cacheHandles>
     ///        <handleDef id = "redisHandle" type="VirtoCommerce.Platform.Web.Cache.RedisCacheHandle2`1,  VirtoCommerce.Platform.Web" />
     ///        <handleDef id = "memCacheHandle" type="CacheManager.SystemRuntimeCaching.MemoryCacheHandle`1, CacheManager.SystemRuntimeCaching" />
     ///    </cacheHandles>
-    ///</cacheManager>    
+    ///</cacheManager>
     ///<system.runtime.caching>
     ///    <memoryCache>
     ///        <namedCaches>
@@ -51,16 +47,19 @@ namespace VirtoCommerce.Platform.Web.Cache
         {
             return null;
         }
+
         public override UpdateItemResult<TCacheValue> Update(string key, string region, Func<TCacheValue, TCacheValue> updateValue, int maxRetries)
         {
             return UpdateItemResult.ForItemDidNotExist<TCacheValue>();
         }
+
         protected override void PutInternalPrepared(CacheItem<TCacheValue> item)
-        {     
-            //Nothing todo   
+        {
+            //Nothing todo
         }
+
         protected override bool AddInternalPrepared(CacheItem<TCacheValue> item)
-        {          
+        {
             return true;
         }
     }
@@ -68,6 +67,7 @@ namespace VirtoCommerce.Platform.Web.Cache
     public class CacheManagerLoggerFactory : ILoggerFactory, ILogger
     {
         private ILog _log;
+
         public CacheManagerLoggerFactory(ILog log)
         {
             _log = log;
@@ -110,11 +110,11 @@ namespace VirtoCommerce.Platform.Web.Cache
             else if (logLevel == CacheManager.Core.Logging.LogLevel.Debug)
             {
                 _log.Debug(message, exception);
-            }        
+            }
             else
             {
                 _log.Info(message, exception);
             }
         }
-    }   
+    }
 }

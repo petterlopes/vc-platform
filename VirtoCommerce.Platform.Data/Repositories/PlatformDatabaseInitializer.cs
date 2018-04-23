@@ -13,7 +13,6 @@ namespace VirtoCommerce.Platform.Data.Repositories
             CreateAccounts(context);
         }
 
-
         private static void CreateAccounts(IRepository repository)
         {
             repository.Add(new AccountEntity

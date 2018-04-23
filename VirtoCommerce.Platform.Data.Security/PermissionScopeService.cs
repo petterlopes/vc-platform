@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VirtoCommerce.Platform.Core.Common;
 using VirtoCommerce.Platform.Core.Security;
 
 namespace VirtoCommerce.Platform.Data.Security
@@ -11,11 +8,12 @@ namespace VirtoCommerce.Platform.Data.Security
     public class PermissionScopeService : IPermissionScopeService
     {
         private List<Func<PermissionScope>> _scopeFactories = new List<Func<PermissionScope>>();
-      
+
         #region ISecurityScopeService Members
+
         public IEnumerable<PermissionScope> GetAvailablePermissionScopes(string permission)
         {
-            return _scopeFactories.Select(x => x()).Where(x=>x.IsScopeAvailableForPermission(permission)).ToArray();
+            return _scopeFactories.Select(x => x()).Where(x => x.IsScopeAvailableForPermission(permission)).ToArray();
         }
 
         public PermissionScope GetScopeByTypeName(string typeName)
@@ -25,7 +23,7 @@ namespace VirtoCommerce.Platform.Data.Security
 
         public IEnumerable<string> GetObjectPermissionScopeStrings(object obj)
         {
-            if(obj == null)
+            if (obj == null)
             {
                 throw new ArgumentNullException("obj");
             }
@@ -40,6 +38,7 @@ namespace VirtoCommerce.Platform.Data.Security
             }
             _scopeFactories.Add(scopeFactory);
         }
-        #endregion
+
+        #endregion ISecurityScopeService Members
     }
 }

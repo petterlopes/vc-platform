@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 
 namespace VirtoCommerce.Platform.Core.Modularity.Exceptions
 {
     /// <summary>
-    /// Base class for exceptions that are thrown because of a problem with modules. 
+    /// Base class for exceptions that are thrown because of a problem with modules.
     /// </summary>
     public class ModularityException : Exception
     {
@@ -49,7 +49,7 @@ namespace VirtoCommerce.Platform.Core.Modularity.Exceptions
         /// </summary>
         /// <param name="moduleName">The name of the module.</param>
         /// <param name="message">The error message that explains the reason for the exception.</param>
-        /// <param name="innerException">The exception that is the cause of the current exception, 
+        /// <param name="innerException">The exception that is the cause of the current exception,
         /// or a <see langword="null"/> reference if no inner exception is specified.</param>
         public ModularityException(string moduleName, string message, Exception innerException)
             : base(message, innerException)

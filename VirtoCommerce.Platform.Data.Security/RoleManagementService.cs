@@ -145,8 +145,6 @@ namespace VirtoCommerce.Platform.Data.Security
             _cacheManager.ClearRegion(SecurityConstants.CacheRegion);
         }
 
-        #endregion
-
-
+        #endregion IRoleManagementService Members
     }
 }

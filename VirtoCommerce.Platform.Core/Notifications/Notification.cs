@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using VirtoCommerce.Platform.Core.Common;
 
 namespace VirtoCommerce.Platform.Core.Notifications
@@ -99,7 +95,7 @@ namespace VirtoCommerce.Platform.Core.Notifications
         public virtual SendNotificationResult SendNotification()
         {
             var result = NotificationSendingGateway.SendNotification(this);
-            if(result.IsSuccess)
+            if (result.IsSuccess)
             {
                 IsActive = false;
                 IsSuccessSend = true;

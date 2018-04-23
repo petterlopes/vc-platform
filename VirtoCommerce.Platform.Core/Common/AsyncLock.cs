@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -18,7 +16,8 @@ namespace VirtoCommerce.Platform.Core.Common
 
         public AsyncSemaphore(int initialCount)
         {
-            if (initialCount < 0) throw new ArgumentOutOfRangeException("initialCount");
+            if (initialCount < 0)
+                throw new ArgumentOutOfRangeException("initialCount");
             m_currentCount = initialCount;
         }
 
@@ -87,7 +86,10 @@ namespace VirtoCommerce.Platform.Core.Common
         {
             private readonly AsyncLock m_toRelease;
 
-            internal Releaser(AsyncLock toRelease) { m_toRelease = toRelease; }
+            internal Releaser(AsyncLock toRelease)
+            {
+                m_toRelease = toRelease;
+            }
 
             public void Dispose()
             {

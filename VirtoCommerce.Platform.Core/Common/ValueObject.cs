@@ -103,6 +103,7 @@ namespace VirtoCommerce.Platform.Core.Common
         {
             return base.Equals(obj);
         }
+
         public static bool operator ==(ValueObject<TValueObject> left, ValueObject<TValueObject> right)
         {
             return Equals(left, right);
@@ -112,6 +113,5 @@ namespace VirtoCommerce.Platform.Core.Common
         {
             return !Equals(left, right);
         }
-
     }
 }

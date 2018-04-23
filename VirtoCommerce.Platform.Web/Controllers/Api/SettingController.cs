@@ -15,6 +15,7 @@ namespace VirtoCommerce.Platform.Web.Controllers.Api
     {
         private static object _lock = new object();
         private readonly ISettingsManager _settingsManager;
+
         public SettingController(ISettingsManager settingsManager)
         {
             _settingsManager = settingsManager;
@@ -96,7 +97,7 @@ namespace VirtoCommerce.Platform.Web.Controllers.Api
             var value = _settingsManager.GetArray<object>(name, null);
             return Ok(value);
         }
-        
+
         /// <summary>
         /// Get UI customization setting
         /// </summary>

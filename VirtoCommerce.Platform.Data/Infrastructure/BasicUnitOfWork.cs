@@ -6,6 +6,7 @@ using System.Linq;
 using VirtoCommerce.Platform.Core.Common;
 using VirtoCommerce.Platform.Data.Common;
 using VirtoCommerce.Platform.Data.Infrastructure.Interceptors;
+
 namespace VirtoCommerce.Platform.Data.Infrastructure
 {
     public class BasicUnitOfWork : IUnitOfWork
@@ -64,8 +65,7 @@ namespace VirtoCommerce.Platform.Data.Infrastructure
                               .ForEach(entry => entry.State = EntityState.Unchanged);
         }
 
-        #endregion
-
+        #endregion IUnitOfWork Members
 
         protected virtual int SaveChanges()
         {

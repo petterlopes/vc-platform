@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace VirtoCommerce.Platform.Core.Notifications
+﻿namespace VirtoCommerce.Platform.Core.Notifications
 {
-	public interface ISmsNotificationSendingGateway : INotificationSendingGateway
-	{
-	}
+    public interface ISmsNotificationSendingGateway : INotificationSendingGateway
+    {
+    }
 }

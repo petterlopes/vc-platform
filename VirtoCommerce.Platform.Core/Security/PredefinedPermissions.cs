@@ -11,31 +11,35 @@
         public const string ModuleQuery = "platform:module:read",
             ModuleAccess = "platform:module:access",
             ModuleManage = "platform:module:manage";
+
         public const string SettingQuery = "platform:setting:read",
             SettingAccess = "platform:setting:access",
             SettingUpdate = "platform:setting:update";
+
         public const string DynamicPropertiesQuery = "platform:dynamic_properties:read",
             DynamicPropertiesCreate = "platform:dynamic_properties:create",
             DynamicPropertiesAccess = "platform:dynamic_properties:access",
             DynamicPropertiesUpdate = "platform:dynamic_properties:update",
             DynamicPropertiesDelete = "platform:dynamic_properties:delete";
+
         public const string NotificationQuery = "platform:notification:read",
             NotificationCreate = "platform:notification:create",
             NotificationAccess = "platform:notification:access",
             NotificationUpdate = "platform:notification:update",
             NotificationDelete = "platform:notification:delete";
+
         public const string SecurityQuery = "platform:security:read",
             SecurityCreate = "platform:security:create",
             SecurityAccess = "platform:security:access",
             SecurityUpdate = "platform:security:update",
             SecurityDelete = "platform:security:delete";
+
         public const string SecurityCallApi = "security:call_api";
         public const string BackgroundJobsManage = "background_jobs:manage";
+
         public const string PlatformExportImportAccess = "platform:exportImport:access",
             PlatformImport = "platform:import",
             PlatformExport = "platform:export";
-      
-
 
         public static Permission[] Permissions { get; private set; }
 

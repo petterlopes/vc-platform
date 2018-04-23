@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,12 +7,12 @@ using VirtoCommerce.Platform.Core.Properties;
 namespace VirtoCommerce.Platform.Core.Modularity
 {
     /// <summary>
-    /// Represents a group of <see cref="ModuleInfo"/> instances that are usually deployed together. <see cref="ModuleInfoGroup"/>s 
-    /// are also used by the <see cref="ModuleCatalog"/> to prevent common deployment problems such as having a module that's required 
-    /// at startup that depends on modules that will only be downloaded on demand. 
-    /// 
+    /// Represents a group of <see cref="ModuleInfo"/> instances that are usually deployed together. <see cref="ModuleInfoGroup"/>s
+    /// are also used by the <see cref="ModuleCatalog"/> to prevent common deployment problems such as having a module that's required
+    /// at startup that depends on modules that will only be downloaded on demand.
+    ///
     /// The group also forwards <see cref="Ref"/> and <see cref="InitializationMode"/> values to the <see cref="ModuleInfo"/>s that it
-    /// contains. 
+    /// contains.
     /// </summary>
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
     public class ModuleInfoGroup : IModuleCatalogItem, IList<ModuleInfo>, IList // IList must be supported in Silverlight 2 to be able to add items from XAML
@@ -30,8 +30,8 @@ namespace VirtoCommerce.Platform.Core.Modularity
         /// <summary>
         /// Gets or sets the <see cref="ModuleInfo.Ref"/> value for the whole group. Any <see cref="ModuleInfo"/> classes that are
         /// added after setting this value will also get this <see cref="Ref"/>.
-        /// 
-        /// The ref value will also be used by the <see cref="IModuleManager"/> to determine which  <see cref="IModuleTypeLoader"/> to use. 
+        ///
+        /// The ref value will also be used by the <see cref="IModuleManager"/> to determine which  <see cref="IModuleTypeLoader"/> to use.
         /// For example, using an "file://" prefix with a valid URL will cause the FileModuleTypeLoader to be used
         /// (Only available in the desktop version of CAL).
         /// </summary>
@@ -49,7 +49,6 @@ namespace VirtoCommerce.Platform.Core.Modularity
             this.modules.Add(item);
         }
 
-
         /// <summary>
         /// Forwards <see cref="InitializationMode"/> and <see cref="Ref"/> properties from this <see cref="ModuleInfoGroup"/>
         /// to <paramref name="moduleInfo"/>.
@@ -58,7 +57,8 @@ namespace VirtoCommerce.Platform.Core.Modularity
         /// <exception cref="ArgumentNullException">An <see cref="ArgumentNullException"/> is thrown if <paramref name="moduleInfo"/> is <see langword="null"/>.</exception>
         protected void ForwardValues(ModuleInfo moduleInfo)
         {
-            if (moduleInfo == null) throw new System.ArgumentNullException("moduleInfo");
+            if (moduleInfo == null)
+                throw new System.ArgumentNullException("moduleInfo");
             if (moduleInfo.Ref == null)
             {
                 moduleInfo.Ref = this.Ref;
@@ -198,7 +198,8 @@ namespace VirtoCommerce.Platform.Core.Modularity
         /// </returns>
         bool IList.Contains(object value)
         {
-            if (value == null) throw new ArgumentNullException("value");
+            if (value == null)
+                throw new ArgumentNullException("value");
             ModuleInfo moduleInfo = value as ModuleInfo;
 
             if (moduleInfo == null)
@@ -241,7 +242,7 @@ namespace VirtoCommerce.Platform.Core.Modularity
         /// </exception>
         public void Insert(int index, object value)
         {
-            if (value == null) 
+            if (value == null)
                 throw new ArgumentNullException("value");
 
             ModuleInfo moduleInfo = value as ModuleInfo;
@@ -266,7 +267,7 @@ namespace VirtoCommerce.Platform.Core.Modularity
         /// Removes the first occurrence of a specific object from the <see cref="ModuleInfoGroup"/>.
         /// </summary>
         /// <param name="value">
-        /// The <see cref="T:System.Object"/> to remove from the <see cref="ModuleInfoGroup"/>. 
+        /// The <see cref="T:System.Object"/> to remove from the <see cref="ModuleInfoGroup"/>.
         /// Must be of type <see cref="ModuleInfo"/>
         /// </param>
         void IList.Remove(object value)

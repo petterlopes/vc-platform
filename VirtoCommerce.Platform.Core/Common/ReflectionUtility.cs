@@ -9,7 +9,6 @@ namespace VirtoCommerce.Platform.Core.Common
 {
     public static class ReflectionUtility
     {
-
         public static IEnumerable<string> GetPropertyNames<T>(params Expression<Func<T, object>>[] propertyExpressions)
         {
             var retVal = new List<string>();
@@ -37,7 +36,6 @@ namespace VirtoCommerce.Platform.Core.Common
                     memberExpression = (MemberExpression)lambda.Body;
                 }
                 retVal = memberExpression.Member.Name;
-
             }
             return retVal;
         }
@@ -52,7 +50,6 @@ namespace VirtoCommerce.Platform.Core.Common
         {
             return propertyInfo.GetCustomAttributes(attribute, true).Any();
         }
-
 
         public static Type[] GetTypeInheritanceChain(this Type type)
         {

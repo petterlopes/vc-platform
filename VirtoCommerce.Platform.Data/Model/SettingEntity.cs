@@ -6,7 +6,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Globalization;
 using System.Linq;
 using VirtoCommerce.Platform.Core.Common;
-using VirtoCommerce.Platform.Core.Modularity;
 using VirtoCommerce.Platform.Core.Settings;
 
 namespace VirtoCommerce.Platform.Data.Model
@@ -51,7 +50,6 @@ namespace VirtoCommerce.Platform.Data.Model
 
         public virtual ObservableCollection<SettingValueEntity> SettingValues { get; set; }
 
-
         public virtual SettingEntry ToModel(SettingEntry settingEntry)
         {
             if (settingEntry == null)
@@ -80,7 +78,7 @@ namespace VirtoCommerce.Platform.Data.Model
             }
             return settingEntry;
         }
-     
+
         public virtual SettingEntity FromModel(SettingEntry settingEntry)
         {
             if (settingEntry == null)
@@ -89,7 +87,7 @@ namespace VirtoCommerce.Platform.Data.Model
             this.ObjectType = settingEntry.ObjectType;
             this.ObjectId = settingEntry.ObjectId;
             this.Name = settingEntry.Name;
-            this.Description = settingEntry.Description;           
+            this.Description = settingEntry.Description;
             this.SettingValueType = settingEntry.ValueType.ToString();
             this.IsEnum = settingEntry.IsArray;
 

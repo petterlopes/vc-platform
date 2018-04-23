@@ -1,4 +1,4 @@
-// CodeMirror, copyright (c) by Marijn Haverbeke and others
+﻿// CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: http://codemirror.net/LICENSE
 
 // This is CodeMirror (http://codemirror.net), a code editor
@@ -5639,7 +5639,6 @@
     toggleOverwrite: function(cm) {cm.toggleOverwrite();}
   };
 
-
   // STANDARD KEYMAPS
 
   var keyMap = CodeMirror.keyMap = {};
@@ -7692,7 +7691,6 @@
     }
     return n + i;
   }
-
 
   // Find the height above the given line.
   function heightAtLine(lineObj) {

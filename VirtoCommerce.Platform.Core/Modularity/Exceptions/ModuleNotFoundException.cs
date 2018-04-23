@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace VirtoCommerce.Platform.Core.Modularity.Exceptions
 {
@@ -18,7 +18,7 @@ namespace VirtoCommerce.Platform.Core.Modularity.Exceptions
         /// Initializes a new instance of the <see cref="ModuleNotFoundException" /> class with a specified error message.
         /// </summary>
         /// <param name="message">
-        /// The message that describes the error. 
+        /// The message that describes the error.
         /// </param>
         public ModuleNotFoundException(string message)
             : base(message)
@@ -29,7 +29,7 @@ namespace VirtoCommerce.Platform.Core.Modularity.Exceptions
         /// Initializes a new instance of the <see cref="ModuleNotFoundException" /> class with a specified error message.
         /// </summary>
         /// <param name="message">
-        /// The message that describes the error. 
+        /// The message that describes the error.
         /// </param>
         /// <param name="innerException">The inner exception</param>
         public ModuleNotFoundException(string message, Exception innerException)

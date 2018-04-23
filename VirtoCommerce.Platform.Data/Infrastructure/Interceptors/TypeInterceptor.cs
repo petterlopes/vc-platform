@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data;
-using System.Data.Entity.Infrastructure;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 
 namespace VirtoCommerce.Platform.Data.Infrastructure.Interceptors
 {
@@ -57,5 +53,4 @@ namespace VirtoCommerce.Platform.Data.Infrastructure.Interceptors
 
         protected abstract void OnAfter(DbEntityEntry item, EntityState state);
     }
-
 }

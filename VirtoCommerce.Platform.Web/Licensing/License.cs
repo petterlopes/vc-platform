@@ -43,7 +43,6 @@ namespace VirtoCommerce.Platform.Web.Licensing
             return result;
         }
 
-
         private static bool ValidateSignature(string data, string signature)
         {
             bool result;

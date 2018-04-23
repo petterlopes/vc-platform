@@ -1,5 +1,4 @@
-
-using VirtoCommerce.Platform.Core.Messages;
+﻿using VirtoCommerce.Platform.Core.Messages;
 
 namespace VirtoCommerce.Platform.Core.Events
 {
